@@ -1,3 +1,3 @@
-"""HeadOfContext — the single authorization layer for enterprise AI agents."""
+"""HeadOfContext — one permission model for humans and their agents."""
 
 __version__ = "0.0.1"
