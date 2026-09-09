@@ -8,11 +8,15 @@
       "package-name": "headofcontext",
       "include-component-in-tag": false,
       "extra-files": [
-        "deploy/helm/headofcontext/Chart.yaml",
+        {
+          "type": "yaml",
+          "path": "deploy/helm/headofcontext/Chart.yaml",
+          "jsonpath": "$.appVersion"
+        },
         {
           "type": "toml",
           "path": "uv.lock",
-          "jsonpath": "$.package[?(@.name=='headofcontext')].version"
+          "jsonpath": "$.package[?(@.name.value=='headofcontext')].version"
         }
       ]
     }
