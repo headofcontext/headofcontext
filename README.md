@@ -5,35 +5,71 @@
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![python](https://img.shields.io/badge/python-3.12%2B-blue.svg)
 
-**The single authorization layer for enterprise AI agents.** Open source, self-hosted,
-independent of the agent framework, the RAG index and the memory tool.
+**One permission model for humans and their agents.** Open source, self-hosted, Apache 2.0.
 
-One rule, enforced everywhere:
+Five hundred people and forty agents, or one founder and a dozen: each agent reads, does,
+delegates and remembers exactly what the human behind it may, and nothing more. Every decision
+is journaled.
 
-> An agent can only read, do and remember what the user it acts for is allowed to see and do,
-> and every delegation between agents can only reduce those rights.
+> An agent can only read, do and remember what the human it acts for is allowed to see and do,
+> however many agents sit in between.
 
 | Function | What it covers |
 |---|---|
-| **READ** | Filter documents, search results and context before they reach the model |
-| **ACT** | Authorize writes and tool calls at execution time, under the user's identity, with optional human approval |
-| **DELEGATE** | Agent → sub-agent delegation with strict attenuation and propagated revocation |
-| **REMEMBER** | Provenance-aware agent memory: a memory inherits the rights of the documents it derives from, re-checked on every read |
+| **READ** | Filter documents, search results and context before they reach the model: only what the person may see |
+| **ACT** | Authorize every tool call as it runs, under the identity of the human, with approvals from a person, bound to the exact call, single use |
+| **DELEGATE** | Hand off to sub-agents without widening: one attenuated token per hop, scope can only shrink, revocation propagates downstream |
+| **REMEMBER** | Memories that inherit their sources: reading one re-checks every document it derives from, for whoever asks, now |
+
+## Who it is for
+
+Your workforce is now people and agents, in whatever ratio. HeadOfContext does not care how many
+of each: every agent, at every level of delegation, holds a subset of one human's rights.
+
+- **An IT department** that must answer for every agent the business plugs in: one model for the
+  directory, the documents, the tools and the agents, one journal for the auditors.
+- **A small AI team** shipping agents faster than access reviews can follow: rights come from the
+  directory that already exists, nothing to re-declare per agent.
+- **A solo founder** running a business with agents: each one acts for you with the slice of your
+  rights you chose, approvals on your phone, one call to revoke.
 
 ## How it works
 
-Every call carries a **principal chain**: the human subject the agent acts for, the agent
-itself, and the ordered delegations between agents. Decisions are made for the subject, never
-for the agent, by [OpenFGA](https://openfga.dev) through one decision engine. Delegation rights
-travel in [biscuit](https://www.biscuitsec.org) tokens that can only be attenuated. Every
-decision is `ALLOW`, `DENY` or `REQUIRE_APPROVAL`, with its reason and chain, and lands in an
-append-only, hash-chained audit journal. Five invariants are tested with Hypothesis and never
-weakened: monotonic delegation, immutable subject, no orphan agent, propagated revocation, fail
-closed.
+1. **Verify.** Your identity provider authenticates the human. The agent is an identity of its
+   own, a confidential OIDC client, and gets a root [biscuit](https://www.biscuitsec.org) token
+   to act for that human only if your directory binds the two. Sub-agents get attenuated
+   copies, never more.
+2. **Decide.** Scope from the token, relationship from [OpenFGA](https://openfga.dev) (your
+   ACLs, synced from your directory, your documents and your tools), then policies. Default
+   deny, fail closed.
+3. **Journal.** `ALLOW`, `DENY` or `REQUIRE_APPROVAL`, with the reason and the chain, never the
+   content. Append-only, hash-chained, exported to OpenTelemetry.
+
+Every call carries a **principal chain**: the human subject, the agent acting, and the ordered
+delegations between agents. Decisions are made for the subject, never for the agent. Five
+invariants are tested with Hypothesis and never weakened: monotonic delegation, immutable
+subject, no orphan agent, propagated revocation, fail closed.
+
+**Provenance-aware memory** is what nobody else ships: a memory keeps the list of documents it
+derives from, in a ledger the memory tool cannot rewrite. When the human loses access to a
+source, the memory goes dark for them, with nothing purged and nothing re-indexed.
 
 HeadOfContext is **not** a policy engine, a RAG platform, a memory tool, an agent framework or an
-LLM gateway: it plugs into the ones you already run. The full list of non-goals and the
-free / paid boundary are in [`AGENTS.md`](AGENTS.md) and [`docs/boundary.md`](docs/boundary.md).
+LLM gateway: it plugs into the ones you already run. The non-goals and the free / paid boundary
+are in [`AGENTS.md`](AGENTS.md) and [`docs/boundary.md`](docs/boundary.md); the core is free and
+stays free.
+
+## Proof, not promises
+
+The repository ships with ACME, a fictional company: 50 people, 8 groups, 500 documents, 3
+agents and 300 reference questions, replayed against a real OpenFGA in `tests/golden`.
+
+| Claim | Where it is checked |
+|---|---|
+| 0 leaks on the 300 golden questions | `uv run pytest tests/golden`, 1800 checks, must be 100 % green |
+| Decision latency under 20 ms at p95, engine on the same host | `scripts/load_test.py`, latency test (ADR 0015) |
+| Under 60 s from revoking a right to the agent losing it | connector freshness and revocation tests, invariant I4 |
+| One journal, append-only and hash-chained | `hoc journal verify`, `tests/adversarial` |
 
 ## Requirements
 

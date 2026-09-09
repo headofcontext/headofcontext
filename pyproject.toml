@@ -1,7 +1,7 @@
 [project]
 name = "headofcontext"
 version = "0.0.1"
-description = "Single authorization layer for enterprise AI agents: READ, ACT, DELEGATE, REMEMBER under one principal chain."
+description = "One permission model for humans and their agents: READ, ACT, DELEGATE, REMEMBER under one principal chain."
 readme = "README.md"
 keywords = ["authorization", "ai-agents", "openfga", "biscuit", "rag", "memory", "provenance"]
 classifiers = [
