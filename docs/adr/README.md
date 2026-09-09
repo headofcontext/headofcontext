@@ -32,3 +32,4 @@ One decision per file, numbered, never edited after acceptance (superseded by a 
 | [0026](0026-first-install.md) | First install: per-command settings, chart install order, schema drift both ways | Accepted |
 | [0027](0027-services-async-stores-sync.md) | Services are asynchronous, stores and token primitives are synchronous; one `permits` shape | Accepted |
 | [0028](0028-versioning-and-releases.md) | Versioning and releases from Conventional Commits (release-please, squash merges) | Accepted |
+| [0029](0029-supply-chain-pinning-and-drift-checks.md) | Supply chain: pinned actions and images, locked installs, drift checks | Accepted |

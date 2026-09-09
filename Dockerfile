@@ -1,6 +1,7 @@
 # HeadOfContext service image (ADR 0011). Runs uvicorn as a non-root user.
-FROM python:3.12-slim AS builder
-COPY --from=ghcr.io/astral-sh/uv:0.9 /uv /usr/local/bin/uv
+# Base images are pinned by digest; Dependabot (docker ecosystem) proposes the bumps.
+FROM python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea AS builder
+COPY --from=ghcr.io/astral-sh/uv:0.9.30@sha256:538e0b39736e7feae937a65983e49d2ab75e1559d35041f9878b7b7e51de91e4 /uv /usr/local/bin/uv
 WORKDIR /app
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PROJECT_ENVIRONMENT=/app/.venv
 # Optional extras baked into the image (ADR 0025): e.g. --build-arg HOC_EXTRAS="mcp mem0 zep".
@@ -12,7 +13,7 @@ COPY src ./src
 RUN set -eu; flags=""; for x in $HOC_EXTRAS; do flags="$flags --extra $x"; done; \
     uv sync --frozen --no-dev $flags
 
-FROM python:3.12-slim
+FROM python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
 RUN useradd --create-home --uid 10001 hoc
 WORKDIR /app
 COPY --from=builder /app /app
