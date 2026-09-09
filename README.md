@@ -1,5 +1,10 @@
 # HeadOfContext
 
+[![ci](https://github.com/headofcontext/headofcontext/actions/workflows/ci.yml/badge.svg)](https://github.com/headofcontext/headofcontext/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/headofcontext/headofcontext?sort=semver)](https://github.com/headofcontext/headofcontext/releases)
+[![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+![python](https://img.shields.io/badge/python-3.12%2B-blue.svg)
+
 **The single authorization layer for enterprise AI agents.** Open source, self-hosted,
 independent of the agent framework, the RAG index and the memory tool.
 
@@ -15,31 +20,74 @@ One rule, enforced everywhere:
 | **DELEGATE** | Agent → sub-agent delegation with strict attenuation and propagated revocation |
 | **REMEMBER** | Provenance-aware agent memory: a memory inherits the rights of the documents it derives from, re-checked on every read |
 
-Status: phases 0 to 5 delivered (core, provenance memory, actions and delegation, connectors,
-HTTP service with Docker, Helm and SDK, CLI, MCP, PydanticAI, standing mandates, hardening);
-premium connectors are developed separately. Decisions in `docs/adr/`, contributor rules in `AGENTS.md`.
+## How it works
 
-Start with **[the quickstart](docs/quickstart.md)** (an HTTP decision in five minutes, then the
-memory demo) or the
-[technical article](docs/articles/provenance-memory.md) on why agent memory needs provenance.
+Every call carries a **principal chain**: the human subject the agent acts for, the agent
+itself, and the ordered delegations between agents. Decisions are made for the subject, never
+for the agent, by [OpenFGA](https://openfga.dev) through one decision engine. Delegation rights
+travel in [biscuit](https://www.biscuitsec.org) tokens that can only be attenuated. Every
+decision is `ALLOW`, `DENY` or `REQUIRE_APPROVAL`, with its reason and chain, and lands in an
+append-only, hash-chained audit journal. Five invariants are tested with Hypothesis and never
+weakened: monotonic delegation, immutable subject, no orphan agent, propagated revocation, fail
+closed.
 
-## Running the service
+HeadOfContext is **not** a policy engine, a RAG platform, a memory tool, an agent framework or an
+LLM gateway: it plugs into the ones you already run. The full list of non-goals and the
+free / paid boundary are in [`AGENTS.md`](AGENTS.md) and [`docs/boundary.md`](docs/boundary.md).
+
+## Requirements
+
+- Python 3.12+ and [uv](https://docs.astral.sh/uv/).
+- OpenFGA, PostgreSQL 16 (pgvector optional) and an OIDC identity provider. The local stack
+  ships them in `docker-compose.yml` (OpenFGA, Keycloak, PostgreSQL, Nextcloud, an OTel
+  collector); Docker is only needed for that stack and for the service image.
+
+## Install
 
 ```bash
-uv run hoc model load --url http://localhost:8080          # store + model, ids and dev values recorded in .env
-uv run hoc fixtures load                                    # ACME tuples (dev)
-docker compose --profile api up -d --build                  # API on :8000 (/docs), sync runner every 5 min
-uv run hoc journal tail -f                                  # watch decisions
+git clone https://github.com/headofcontext/headofcontext.git && cd headofcontext
+uv sync --extra langgraph --extra crewai --extra pydanticai --extra mcp   # extras: mem0, zep too
 ```
 
-`hoc` also runs connectors on demand (`hoc sync --once --config hoc.connectors.json`), manages
-approvals (`hoc approvals list|approve|reject`), generates the root key (`hoc keys generate`) and
-issues a dev biscuit (`hoc token issue`). See ADR 0012.
+The service image is published on each release as `ghcr.io/headofcontext/headofcontext:vX.Y.Z`;
+the Helm chart is in [`deploy/helm/headofcontext`](deploy/helm/headofcontext/README.md).
 
-Agents authenticate with OIDC client credentials (Keycloak); humans with their own token when
-they issue a root biscuit or resolve an approval (ADR 0011). The contract is `docs/openapi.json`;
-the Python client lives in the separate `headofcontext-sdk-python` repository and depends on
-`httpx` only. A Helm chart is under `deploy/helm/headofcontext`.
+## Quickstart
+
+```bash
+docker compose up -d                                        # OpenFGA :8080, Keycloak :8180, PostgreSQL :5433
+uv run hoc model load --url http://localhost:8080           # store + model; ids and dev values written to .env
+uv run hoc fixtures load                                    # the fictional ACME company (50 users, 500 documents)
+export HOC_OPENFGA_STORE_ID=$(grep HOC_OPENFGA_STORE_ID .env | cut -d= -f2)
+docker compose --profile api up -d --build                  # API on :8000 (/docs), sync runner every 5 min
+curl -s localhost:8000/v1/ready
+uv run hoc journal tail -n 5                                # every decision, journaled
+```
+
+[`docs/quickstart.md`](docs/quickstart.md) continues from here: a first decision over HTTP, then
+the provenance-memory demo (`scripts/demo_memory.py`). The
+[technical article](docs/articles/provenance-memory.md) explains why agent memory needs
+provenance.
+
+`hoc` also runs connectors on demand (`hoc sync --once --config hoc.connectors.json`), manages
+approvals (`hoc approvals list|approve|reject`) and standing mandates (`hoc mandates`),
+generates the root key (`hoc keys generate`), issues a dev biscuit (`hoc token issue`) and
+applies migrations (`hoc db migrate|status`). See ADR 0012.
+
+Agents authenticate with OIDC client credentials; humans with their own token when they issue a
+root biscuit or resolve an approval (ADR 0011). The HTTP contract is
+[`docs/openapi.json`](docs/openapi.json); a Python client written against it is published
+separately.
+
+## Integrations
+
+| Where | What |
+|---|---|
+| Agent frameworks | LangGraph and CrewAI (`guard_tools`), PydanticAI (`guard_toolset`), any MCP client or server (`hoc mcp proxy`, `hoc mcp serve`) |
+| Sources | Files, Nextcloud, PipesHub; Keycloak groups. Connectors write the sources' own ACLs into OpenFGA |
+| Memory | PostgreSQL (default), Mem0, Zep; any adapter through the `headofcontext.memory_adapters` entry point |
+| Identity | Keycloak, any OIDC provider with client credentials (Entra ID client tokens recognised) |
+| Approvals | Log, signed webhook, plugins under `headofcontext.approval_channels` |
 
 ## Filtering what the model reads
 
@@ -159,19 +207,34 @@ resources and prompts are not forwarded. See ADR 0013.
 ## Development
 
 ```
-uv sync                                # add --extra langgraph / --extra crewai / --extra pydanticai / --extra mcp / --extra mem0 / --extra zep as needed
+uv sync --extra langgraph --extra crewai --extra pydanticai --extra mcp
 docker compose up -d                   # OpenFGA :8080, Keycloak :8180, PostgreSQL :5433, OTel :4318, Nextcloud :8090
 uv run pytest tests/unit tests/adversarial
-uv run pytest tests/integration        # real OpenFGA / PostgreSQL / Keycloak (skipped when down, HOC_REQUIRE_SERVICES=1 to fail)
+HOC_REQUIRE_SERVICES=1 uv run pytest tests/integration   # real OpenFGA / PostgreSQL / Keycloak (skipped when down without the flag)
 ./scripts/nextcloud-dev-setup.sh && uv run python scripts/load_nextcloud.py   # optional: ACME into Nextcloud
 uv run pytest tests/golden             # ACME golden set: engine level, files end to end, Nextcloud end to end
 uv run ruff check . && uv run mypy --strict src
 ./scripts/fga-model.sh                 # regenerate docs/authz-model.json and run the OpenFGA model tests
+uv run python scripts/export_openapi.py   # after any API change
 ```
 
-## Layout
+The rules every contributor follows are in [`AGENTS.md`](AGENTS.md): ADR before code, tests
+before implementation, adversarial test for every security function, real services in
+integration tests. [`CONTRIBUTING.md`](CONTRIBUTING.md) is the short version.
 
-See `AGENTS.md`. Decisions live in `docs/adr/`, the threat model in `docs/threat-model.md`,
-the OpenFGA model in `docs/authz-model.fga`, the fictional ACME company in `fixtures/acme/`.
+## Versioning and releases
 
-License: Apache 2.0.
+Pre-1.0. Merges to `main` are squashed and the pull request title is a Conventional Commit
+line; [release-please](https://github.com/googleapis/release-please) turns them into a release
+pull request, a `vX.Y.Z` tag, generated release notes and the container image (ADR 0028). The
+HTTP contract is versioned separately (`/v1`) and changes to it are announced in the release
+notes.
+
+## Project
+
+- Decisions: [`docs/adr/`](docs/adr/README.md). Threat model: [`docs/threat-model.md`](docs/threat-model.md).
+  OpenFGA model: [`docs/authz-model.fga`](docs/authz-model.fga). Key rotation:
+  [`docs/key-rotation.md`](docs/key-rotation.md).
+- Security reports: [`SECURITY.md`](SECURITY.md), never the issue tracker.
+- Fixtures: the fictional ACME company in `fixtures/acme/`, generated, never real data.
+- License: [Apache 2.0](LICENSE).

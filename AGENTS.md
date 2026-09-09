@@ -123,7 +123,9 @@ deploy/helm/     the chart
 
 A change is done when: the ADR exists (or is updated), unit and adversarial tests pass, the
 integration and golden suites are green against the local stack, `ruff` and `mypy --strict` are
-clean, `docs/openapi.json` is re-exported if the API changed, the changelog is updated, and the commit message says why.
+clean, `docs/openapi.json` is re-exported if the API changed, and the pull request title is a
+Conventional Commit line that says what changed (it becomes the commit on `main` and feeds the
+release notes, ADR 0028).
 
 ## Related repositories
 

@@ -3,4 +3,4 @@ name: headofcontext
 description: The single authorization layer for enterprise AI agents (service, ADR 0011).
 type: application
 version: 0.1.0
-appVersion: "0.0.1"
+appVersion: "0.0.1" # x-release-please-version

@@ -58,7 +58,7 @@ pydanticai = [
 [project.urls]
 Homepage = "https://headofcontext.com"
 Documentation = "https://docs.headofcontext.com"
-Changelog = "https://github.com/headofcontext/headofcontext/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/headofcontext/headofcontext/releases"
 
 [project.scripts]
 hoc = "headofcontext.cli:main"
@@ -68,7 +68,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
-include = ["src/headofcontext", "docs/adr", "docs/threat-model.md", "docs/boundary.md", "docs/openapi.json", "docs/authz-model.fga", "README.md", "LICENSE", "NOTICE", "CHANGELOG.md", "SECURITY.md", "AGENTS.md"]
+include = ["src/headofcontext", "docs/adr", "docs/threat-model.md", "docs/boundary.md", "docs/openapi.json", "docs/authz-model.fga", "README.md", "LICENSE", "NOTICE", "SECURITY.md", "AGENTS.md"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/headofcontext"]
