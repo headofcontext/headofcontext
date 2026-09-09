@@ -11,7 +11,6 @@ uv sync
 docker compose up -d                                        # OpenFGA :8080, Keycloak :8180, PostgreSQL :5433
 uv run hoc model load --url http://localhost:8080           # store + model; .env gets the ids and the dev values
 uv run hoc fixtures load                                    # ACME tuples
-export HOC_OPENFGA_STORE_ID=$(grep HOC_OPENFGA_STORE_ID .env | cut -d= -f2)
 docker compose --profile api up -d --build                  # API on :8000, migrations applied at start
 curl -s localhost:8000/v1/ready                              # {"status":"ready","checks":{...}}
 ```
@@ -37,8 +36,8 @@ curl -s localhost:8000/v1/actions/gate -H "Authorization: Bearer $AGENT_JWT" \
 uv run hoc journal tail -n 5                                 # every decision, journaled
 ```
 
-Every route is in `docs/openapi.json` (also served at `/docs`); the Python SDK lives in the
-separate `headofcontext-sdk-python` repository.
+Every route is in `docs/openapi.json` (also served at `/docs`); a Python client written against it
+is published separately.
 
 ## B. Provenance-aware memory in 10 minutes
 

@@ -129,8 +129,11 @@ release notes, ADR 0028).
 
 ## Related repositories
 
+Published separately, not yet public at the time of writing:
+
 - `headofcontext-sdk-python` — the httpx-only client, written against `docs/openapi.json`.
-- `documentation` — the Docusaurus site; `scripts/sync-core.sh` copies ADRs and contracts from here.
+- `documentation` — the Docusaurus site; its `scripts/sync-core.sh` copies ADRs and contracts
+  from here.
 - `headofcontext.com` — the marketing site.
 - `headofcontext-enterprise` (private) — premium connectors and channels, plugged in through the
   `headofcontext.*` entry point groups. The public repository never contains paid code.

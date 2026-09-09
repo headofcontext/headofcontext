@@ -19,3 +19,4 @@ In short:
    under a licence incompatible with Apache 2.0.
 
 Security issues go through [`SECURITY.md`](SECURITY.md), not the issue tracker.
+Everyone taking part follows the [code of conduct](CODE_OF_CONDUCT.md).

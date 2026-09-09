@@ -39,15 +39,6 @@ zep = ["zep-cloud>=2.0"]
 # Framework integrations are optional too (ADR 0009).
 langgraph = ["langgraph>=1.0", "langchain-core>=1.0"]
 crewai = ["crewai>=1.0"]
-dev = [
-  "pytest>=8.3",
-  "pytest-asyncio>=0.24",
-  "hypothesis>=6.115",
-  "ruff>=0.7",
-  "mypy>=1.13",
-  "pyyaml>=6.0",
-  "types-pyyaml>=6.0",
-]
 mcp = [
     "mcp>=2",
 ]
@@ -56,8 +47,8 @@ pydanticai = [
 ]
 
 [project.urls]
-Homepage = "https://headofcontext.com"
-Documentation = "https://docs.headofcontext.com"
+Homepage = "https://github.com/headofcontext/headofcontext"
+Documentation = "https://github.com/headofcontext/headofcontext/tree/main/docs"
 Changelog = "https://github.com/headofcontext/headofcontext/releases"
 
 [project.scripts]
@@ -115,7 +106,7 @@ warn_unreachable = true
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["biscuit_auth", "biscuit_auth.*", "openfga_sdk", "openfga_sdk.*", "authlib", "authlib.*"]
+module = ["biscuit_auth", "biscuit_auth.*", "openfga_sdk", "openfga_sdk.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

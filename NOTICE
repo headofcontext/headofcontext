@@ -2,3 +2,5 @@ HeadOfContext
 Copyright 2026 the HeadOfContext authors
 
 Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This product depends on psycopg (LGPL-3.0), used unmodified as a library.

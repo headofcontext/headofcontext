@@ -8,3 +8,11 @@ tests
 fixtures/acme/generated/documents.json
 deploy
 scripts
+.env
+.env.*
+.hoc-local.json
+CLAUDE*.md
+dist
+.coverage
+*.pem
+*.key

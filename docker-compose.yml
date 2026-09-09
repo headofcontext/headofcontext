@@ -1,4 +1,5 @@
 # HeadOfContext local stack. `docker compose up -d` brings up everything the test bench needs.
+# Development only: every credential in this file is public and the ports are open. Never expose it.
 #
 #   postgres        HeadOfContext journal, revocations, connector state (pgvector for the demo index)
 #   openfga         authorization engine (+ its own postgres, migrated on first start)
@@ -117,7 +118,7 @@ services:
       - nextcloud_data:/var/www/html
 
   # ---- profile api: the HeadOfContext service itself (ADR 0011)
-  #   uv run python scripts/load_openfga.py && docker compose --profile api up -d --build hoc
+  #   uv run hoc model load && docker compose --profile api up -d --build hoc
   hoc:
     build: .
     profiles: ["api"]

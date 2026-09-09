@@ -24,3 +24,7 @@ updates:
       interval: weekly
     commit-message:
       prefix: "chore(deps)"
+    ignore:
+      # The Python line is a project decision (requires-python), not a dependency bump.
+      - dependency-name: python
+        update-types: [version-update:semver-major, version-update:semver-minor]

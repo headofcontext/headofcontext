@@ -9,8 +9,12 @@ dist/
 build/
 *.egg-info/
 .env
-.env.local
-.hoc-local.json
+.env.*
+!.env.example
+*.pem
+*.key
+.claude/settings.local.json
 CLAUDE.local.md
 .coverage
 coverage.xml
+.hoc-local.json
