@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "python",
+  "bump-minor-pre-major": true,
+  "skip-changelog": true,
+  "packages": {
+    ".": {
+      "package-name": "headofcontext",
+      "include-component-in-tag": false,
+      "extra-files": [
+        "deploy/helm/headofcontext/Chart.yaml",
+        {
+          "type": "toml",
+          "path": "uv.lock",
+          "jsonpath": "$.package[?(@.name=='headofcontext')].version"
+        }
+      ]
+    }
+  }
+}
