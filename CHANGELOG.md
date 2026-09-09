@@ -33,6 +33,11 @@ First public state. Every decision below has an ADR in `docs/adr/`.
   (0027).
 - PostgreSQL roles script (`scripts/db-roles.sql`) and the OpenFGA bootstrap runbook.
 
+### Fixed
+- `docker compose up` no longer fails without a `.env`: `HOC_OPENFGA_STORE_ID` is optional at
+  interpolation time for the profiled `hoc` and `hoc-sync` services, and the service refuses to
+  start without it instead.
+
 ### Security
 - Threat model rows T1–T21 with an adversarial test each (`docs/threat-model.md`).
 - Three adversarial audits on 2026-09-09: approver authority and atomic approval consumption;

@@ -124,7 +124,9 @@ services:
     environment:
       HOC_POSTGRES_DSN: postgresql://hoc:hoc@postgres:5432/hoc
       HOC_OPENFGA_URL: http://openfga:8080
-      HOC_OPENFGA_STORE_ID: ${HOC_OPENFGA_STORE_ID:?run `uv run hoc model load` first}
+      # Not `:?`: Compose interpolates profiled services too, which breaks `up` without a .env.
+      # Settings.from_env refuses to start the service when the value is empty.
+      HOC_OPENFGA_STORE_ID: ${HOC_OPENFGA_STORE_ID:-}
       HOC_OPENFGA_MODEL_ID: ${HOC_OPENFGA_MODEL_ID:-}
       HOC_OIDC_ISSUER: http://localhost:8180/realms/acme        # what tokens obtained from the host carry
       HOC_OIDC_INTERNAL_URL: http://keycloak:8080/realms/acme   # how the service reaches Keycloak
@@ -185,7 +187,9 @@ services:
     environment:
       HOC_POSTGRES_DSN: postgresql://hoc:hoc@postgres:5432/hoc
       HOC_OPENFGA_URL: http://openfga:8080
-      HOC_OPENFGA_STORE_ID: ${HOC_OPENFGA_STORE_ID:?run `uv run hoc model load` first}
+      # Not `:?`: Compose interpolates profiled services too, which breaks `up` without a .env.
+      # Settings.from_env refuses to start the service when the value is empty.
+      HOC_OPENFGA_STORE_ID: ${HOC_OPENFGA_STORE_ID:-}
       HOC_OPENFGA_MODEL_ID: ${HOC_OPENFGA_MODEL_ID:-}
       HOC_OIDC_ISSUER: http://localhost:8180/realms/acme
       HOC_OIDC_CLIENT_ID: headofcontext
