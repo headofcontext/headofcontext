@@ -1,0 +1,268 @@
+# HeadOfContext local stack. `docker compose up -d` brings up everything the test bench needs.
+#
+#   postgres        HeadOfContext journal, revocations, connector state (pgvector for the demo index)
+#   openfga         authorization engine (+ its own postgres, migrated on first start)
+#   keycloak        dev IdP with the ACME realm imported from fixtures
+#   otel-collector  receives audit spans over OTLP/HTTP and prints them
+#   nextcloud       document source for the ACME fixtures (phase 3 connector)
+#   fga-cli         one-shot helper: `docker compose run --rm fga-cli model test --tests /docs/authz-model.fga.yaml`
+#
+# Profile `rag` adds PipesHub (adapted from upstream deployment/docker-compose/docker-compose.yml);
+# it is heavy and only needed for the end-to-end golden run in phase 3:
+#   docker compose --profile rag up -d
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: hoc
+      POSTGRES_PASSWORD: hoc
+      POSTGRES_DB: hoc
+    ports:
+      - "5433:5432"   # 5433 on the host: leaves a local PostgreSQL on 5432 alone
+    volumes:
+      - hoc_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hoc -d hoc"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  openfga-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: openfga
+      POSTGRES_PASSWORD: openfga
+      POSTGRES_DB: openfga
+    volumes:
+      - openfga_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openfga -d openfga"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  openfga-migrate:
+    image: openfga/openfga:v1.9
+    command: migrate
+    environment:
+      OPENFGA_DATASTORE_ENGINE: postgres
+      OPENFGA_DATASTORE_URI: postgres://openfga:openfga@openfga-postgres:5432/openfga?sslmode=disable
+    depends_on:
+      openfga-postgres:
+        condition: service_healthy
+
+  openfga:
+    image: openfga/openfga:v1.9
+    command: run
+    environment:
+      OPENFGA_DATASTORE_ENGINE: postgres
+      OPENFGA_DATASTORE_URI: postgres://openfga:openfga@openfga-postgres:5432/openfga?sslmode=disable
+      OPENFGA_LOG_FORMAT: json
+      OPENFGA_PLAYGROUND_ENABLED: "true"
+      # Keep a stable pool: with idle == open, BatchCheck fan-out does not churn TCP connections
+      # to the datastore (ephemeral port exhaustion showed up as sporadic "Internal Server Error").
+      OPENFGA_DATASTORE_MAX_OPEN_CONNS: "30"
+      OPENFGA_DATASTORE_MAX_IDLE_CONNS: "30"
+      OPENFGA_DATASTORE_CONN_MAX_IDLE_TIME: "5m"
+      OPENFGA_DATASTORE_CONN_MAX_LIFETIME: "30m"
+    ports:
+      - "8080:8080"   # HTTP API
+      - "8081:8081"   # gRPC
+      - "3001:3000"   # playground
+    depends_on:
+      openfga-migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "/openfga", "version"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.3
+    command: start-dev --import-realm --http-port=8080
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: "true"
+    ports:
+      - "8180:8080"
+    volumes:
+      - ./fixtures/acme/generated/keycloak-realm.json:/opt/keycloak/data/import/acme-realm.json:ro
+    healthcheck:
+      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/9000 && echo -e 'GET /health/ready HTTP/1.1\\r\\nHost: localhost\\r\\n\\r\\n' >&3 && grep -q '\"UP\"' <&3"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.131.0
+    command: ["--config=/etc/otel/config.yaml"]
+    volumes:
+      - ./deploy/otel/config.yaml:/etc/otel/config.yaml:ro
+    ports:
+      - "4318:4318"   # OTLP/HTTP
+
+  nextcloud:
+    image: nextcloud:31-apache
+    environment:
+      NEXTCLOUD_ADMIN_USER: admin
+      NEXTCLOUD_ADMIN_PASSWORD: admin
+      NEXTCLOUD_TRUSTED_DOMAINS: "localhost nextcloud"
+      SQLITE_DATABASE: nextcloud
+    ports:
+      - "8090:80"
+    volumes:
+      - nextcloud_data:/var/www/html
+
+  # ---- profile api: the HeadOfContext service itself (ADR 0011)
+  #   uv run python scripts/load_openfga.py && docker compose --profile api up -d --build hoc
+  hoc:
+    build: .
+    profiles: ["api"]
+    environment:
+      HOC_POSTGRES_DSN: postgresql://hoc:hoc@postgres:5432/hoc
+      HOC_OPENFGA_URL: http://openfga:8080
+      HOC_OPENFGA_STORE_ID: ${HOC_OPENFGA_STORE_ID:?run `uv run hoc model load` first}
+      HOC_OPENFGA_MODEL_ID: ${HOC_OPENFGA_MODEL_ID:-}
+      HOC_OIDC_ISSUER: http://localhost:8180/realms/acme        # what tokens obtained from the host carry
+      HOC_OIDC_INTERNAL_URL: http://keycloak:8080/realms/acme   # how the service reaches Keycloak
+      HOC_OIDC_AUDIENCE: headofcontext
+      HOC_OIDC_CLIENT_ID: headofcontext
+      HOC_OIDC_CLIENT_SECRET: hoc-dev-secret
+      HOC_ROOT_KEY_HEX: ${HOC_ROOT_KEY_HEX:-}
+      # Dev only: without HOC_ROOT_KEY_HEX the key is regenerated at every restart.
+      HOC_ALLOW_EPHEMERAL_ROOT_KEY: ${HOC_ALLOW_EPHEMERAL_ROOT_KEY:-true}
+      HOC_APPROVAL_TOOLS: "tool:payment.*,tool:hr.export"
+      HOC_CONNECTORS_REQUIRED: "false"
+      HOC_OTEL_ENABLED: "true"
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+      # Everything else is passed through from the host environment with its default.
+      HOC_ROOT_KEY_ID: ${HOC_ROOT_KEY_ID:-1}
+      HOC_ROOT_PUBLIC_KEYS: ${HOC_ROOT_PUBLIC_KEYS:-}
+      HOC_RATE_LIMIT_PER_MINUTE: ${HOC_RATE_LIMIT_PER_MINUTE:-600}
+      HOC_TOKEN_TTL_MINUTES: ${HOC_TOKEN_TTL_MINUTES:-60}
+      HOC_APPROVAL_TTL_MINUTES: ${HOC_APPROVAL_TTL_MINUTES:-60}
+      HOC_APPROVAL_CHANNELS: ${HOC_APPROVAL_CHANNELS:-log}
+      HOC_APPROVAL_WEBHOOK_URL: ${HOC_APPROVAL_WEBHOOK_URL:-}
+      HOC_APPROVAL_WEBHOOK_SECRET: ${HOC_APPROVAL_WEBHOOK_SECRET:-}
+      HOC_ALLOW_SELF_APPROVAL: ${HOC_ALLOW_SELF_APPROVAL:-false}
+      HOC_MANDATE_MAX_DAYS: ${HOC_MANDATE_MAX_DAYS:-90}
+      HOC_MEMORY_BACKEND: ${HOC_MEMORY_BACKEND:-postgres}
+      HOC_MEMORY_EMBEDDER: ${HOC_MEMORY_EMBEDDER:-}
+      HOC_MEMORY_NAMESPACE: ${HOC_MEMORY_NAMESPACE:-hoc}
+      HOC_MEM0_CONFIG: ${HOC_MEM0_CONFIG:-}
+      HOC_ZEP_API_KEY: ${HOC_ZEP_API_KEY:-}
+      HOC_ZEP_BASE_URL: ${HOC_ZEP_BASE_URL:-}
+      HOC_CONNECTOR_MAX_STALENESS_MINUTES: ${HOC_CONNECTOR_MAX_STALENESS_MINUTES:-60}
+      HOC_OIDC_SUBJECT_CLAIM: ${HOC_OIDC_SUBJECT_CLAIM:-preferred_username}
+      HOC_IDENTITY_PROVIDER: ${HOC_IDENTITY_PROVIDER:-keycloak}
+      HOC_OIDC_GROUPS_CLAIM: ${HOC_OIDC_GROUPS_CLAIM:-groups}
+      HOC_OIDC_AGENT_CLAIM: ${HOC_OIDC_AGENT_CLAIM:-clientId}
+      HOC_OIDC_AGENT_ID_CLAIM: ${HOC_OIDC_AGENT_ID_CLAIM:-clientId}
+      HOC_SERVICE_NAME: ${HOC_SERVICE_NAME:-headofcontext}
+      HOC_DB_AUTO_MIGRATE: ${HOC_DB_AUTO_MIGRATE:-true}
+      HOC_DB_POOL_SIZE: ${HOC_DB_POOL_SIZE:-8}
+      HOC_LOG_LEVEL: ${HOC_LOG_LEVEL:-INFO}
+      HOC_LOG_FORMAT: ${HOC_LOG_FORMAT:-text}
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      openfga:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  # The sync runner: keeps OpenFGA in line with Keycloak and Nextcloud (ADR 0012).
+  hoc-sync:
+    build: .
+    profiles: ["api"]
+    command: ["hoc", "--env-file", "/dev/null", "sync", "--config", "/app/hoc.connectors.json", "--interval", "300"]
+    environment:
+      HOC_POSTGRES_DSN: postgresql://hoc:hoc@postgres:5432/hoc
+      HOC_OPENFGA_URL: http://openfga:8080
+      HOC_OPENFGA_STORE_ID: ${HOC_OPENFGA_STORE_ID:?run `uv run hoc model load` first}
+      HOC_OPENFGA_MODEL_ID: ${HOC_OPENFGA_MODEL_ID:-}
+      HOC_OIDC_ISSUER: http://localhost:8180/realms/acme
+      HOC_OIDC_CLIENT_ID: headofcontext
+      HOC_OIDC_CLIENT_SECRET: hoc-dev-secret
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      NEXTCLOUD_PASSWORD: admin
+      HOC_DB_AUTO_MIGRATE: ${HOC_DB_AUTO_MIGRATE:-true}
+    restart: unless-stopped
+    volumes:
+      - ./hoc.connectors.json:/app/hoc.connectors.json:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      openfga:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  fga-cli:
+    image: openfga/cli:v0.7.0
+    profiles: ["tools"]
+    volumes:
+      - ./docs:/docs:ro
+    environment:
+      FGA_API_URL: http://openfga:8080
+    entrypoint: ["/fga"]
+
+  # ---- profile rag: PipesHub, adapted from upstream deployment/docker-compose/docker-compose.yml
+  pipeshub-ai:
+    image: pipeshubai/pipeshub-ai:${PIPESHUB_IMAGE_TAG:-latest}
+    profiles: ["rag"]
+    environment:
+      NODE_ENV: production
+      DATA_STORE: mongodb
+      MONGO_PASSWORD: ${PIPESHUB_MONGO_PASSWORD:-pipeshub}
+      REDIS_PASSWORD: ${PIPESHUB_REDIS_PASSWORD:-pipeshub}
+      QDRANT_API_KEY: ${PIPESHUB_QDRANT_API_KEY:-pipeshub}
+      KV_STORE_TYPE: mongodb
+      MESSAGE_BROKER: none
+    ports:
+      - "3000:3000"
+    volumes:
+      - pipeshub_data:/data
+    depends_on:
+      - pipeshub-mongodb
+      - pipeshub-redis
+      - pipeshub-qdrant
+
+  pipeshub-mongodb:
+    image: mongo:8.0.17
+    profiles: ["rag"]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${PIPESHUB_MONGO_PASSWORD:-pipeshub}
+    volumes:
+      - pipeshub_mongodb:/data/db
+
+  pipeshub-redis:
+    image: redis:7.4-bookworm
+    profiles: ["rag"]
+    command: ["redis-server", "--requirepass", "${PIPESHUB_REDIS_PASSWORD:-pipeshub}"]
+    volumes:
+      - pipeshub_redis:/data
+
+  pipeshub-qdrant:
+    image: qdrant/qdrant:v1.15
+    profiles: ["rag"]
+    environment:
+      QDRANT__SERVICE__API_KEY: ${PIPESHUB_QDRANT_API_KEY:-pipeshub}
+    volumes:
+      - pipeshub_qdrant:/qdrant/storage
+
+volumes:
+  hoc_postgres:
+  openfga_postgres:
+  nextcloud_data:
+  pipeshub_data:
+  pipeshub_mongodb:
+  pipeshub_redis:
+  pipeshub_qdrant:

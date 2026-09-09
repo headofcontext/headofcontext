@@ -1,0 +1,4877 @@
+[
+ {
+  "user": "user:alice.martin",
+  "relation": "member",
+  "object": "group:direction"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "member",
+  "object": "group:direction"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "member",
+  "object": "group:direction"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "member",
+  "object": "group:direction"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "member",
+  "object": "group:direction"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:farid.richard",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:farid.richard",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "member",
+  "object": "group:stagiaires"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:lea.laurent",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:lea.laurent",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "member",
+  "object": "group:stagiaires"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "member",
+  "object": "group:stagiaires"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "member",
+  "object": "group:stagiaires"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "member",
+  "object": "group:stagiaires"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "member",
+  "object": "group:magasin-lille"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "member",
+  "object": "group:magasin-lyon"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "member",
+  "object": "group:stagiaires"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "member",
+  "object": "group:it"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-direction"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "source:nextcloud-direction"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "source:nextcloud-direction"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-rh"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "editor",
+  "object": "source:nextcloud-rh"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "editor",
+  "object": "source:nextcloud-rh"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-finance"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "editor",
+  "object": "source:nextcloud-finance"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "editor",
+  "object": "source:nextcloud-finance"
+ },
+ {
+  "user": "group:magasin-lille#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-magasin-lille"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "editor",
+  "object": "source:nextcloud-magasin-lille"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "editor",
+  "object": "source:nextcloud-magasin-lille"
+ },
+ {
+  "user": "group:magasin-lyon#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-magasin-lyon"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "editor",
+  "object": "source:nextcloud-magasin-lyon"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "editor",
+  "object": "source:nextcloud-magasin-lyon"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-it"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "editor",
+  "object": "source:nextcloud-it"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "editor",
+  "object": "source:nextcloud-it"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-juridique"
+ },
+ {
+  "user": "user:farid.richard",
+  "relation": "editor",
+  "object": "source:nextcloud-juridique"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "editor",
+  "object": "source:nextcloud-juridique"
+ },
+ {
+  "user": "group:stagiaires#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-stagiaires"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:magasin-lille#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:magasin-lyon#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "group:stagiaires#member",
+  "relation": "viewer",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "source:nextcloud-public"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0000"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0001"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "editor",
+  "object": "document:acme-0002"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0002"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0003"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0004"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "viewer",
+  "object": "document:acme-0004"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "viewer",
+  "object": "document:acme-0004"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "viewer",
+  "object": "document:acme-0004"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0005"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "viewer",
+  "object": "document:acme-0005"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "viewer",
+  "object": "document:acme-0005"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0006"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "viewer",
+  "object": "document:acme-0006"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0006"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0006"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0007"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0008"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0009"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0010"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0011"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "editor",
+  "object": "document:acme-0012"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0012"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0013"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0014"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "editor",
+  "object": "document:acme-0015"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0015"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0016"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0017"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0018"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "viewer",
+  "object": "document:acme-0018"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0019"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0020"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0021"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "viewer",
+  "object": "document:acme-0021"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0022"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "viewer",
+  "object": "document:acme-0022"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "viewer",
+  "object": "document:acme-0022"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0022"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0023"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0024"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "viewer",
+  "object": "document:acme-0024"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "viewer",
+  "object": "document:acme-0024"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0025"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0026"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0027"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "viewer",
+  "object": "document:acme-0027"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "viewer",
+  "object": "document:acme-0027"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0028"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0029"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0030"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0031"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0032"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0033"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "viewer",
+  "object": "document:acme-0033"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "viewer",
+  "object": "document:acme-0033"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "viewer",
+  "object": "document:acme-0033"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0034"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "viewer",
+  "object": "document:acme-0034"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0035"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0035"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0036"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0037"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "viewer",
+  "object": "document:acme-0037"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0038"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0038"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "editor",
+  "object": "document:acme-0039"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "editor",
+  "object": "document:acme-0039"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0039"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0040"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0040"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "viewer",
+  "object": "document:acme-0040"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0041"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "viewer",
+  "object": "document:acme-0041"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0041"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0041"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0042"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "viewer",
+  "object": "document:acme-0042"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "viewer",
+  "object": "document:acme-0042"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0042"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0043"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0044"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "viewer",
+  "object": "document:acme-0044"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0045"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0046"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "viewer",
+  "object": "document:acme-0046"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "viewer",
+  "object": "document:acme-0046"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0047"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "editor",
+  "object": "document:acme-0048"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0048"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0049"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "editor",
+  "object": "document:acme-0050"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0050"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0051"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0052"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0053"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0053"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0054"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0055"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "viewer",
+  "object": "document:acme-0055"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "viewer",
+  "object": "document:acme-0055"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0056"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0057"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "viewer",
+  "object": "document:acme-0057"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "viewer",
+  "object": "document:acme-0057"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0057"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "editor",
+  "object": "document:acme-0058"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "editor",
+  "object": "document:acme-0058"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0058"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0059"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0060"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0061"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0062"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0063"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0064"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0065"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "viewer",
+  "object": "document:acme-0065"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0065"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0066"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0067"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "viewer",
+  "object": "document:acme-0067"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0068"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0068"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0069"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0070"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0071"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "viewer",
+  "object": "document:acme-0071"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0072"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0073"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0074"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0075"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0076"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "viewer",
+  "object": "document:acme-0076"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "viewer",
+  "object": "document:acme-0076"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "editor",
+  "object": "document:acme-0077"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "editor",
+  "object": "document:acme-0077"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0077"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0078"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0079"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0080"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0081"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0082"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0083"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "editor",
+  "object": "document:acme-0084"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0084"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0085"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0086"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0087"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0088"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0089"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0090"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "editor",
+  "object": "document:acme-0091"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "editor",
+  "object": "document:acme-0091"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0091"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0092"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0093"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0094"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0095"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "editor",
+  "object": "document:acme-0096"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "editor",
+  "object": "document:acme-0096"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0096"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0097"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "viewer",
+  "object": "document:acme-0097"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "viewer",
+  "object": "document:acme-0097"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "viewer",
+  "object": "document:acme-0097"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0098"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "viewer",
+  "object": "document:acme-0098"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "viewer",
+  "object": "document:acme-0098"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0099"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0100"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "viewer",
+  "object": "document:acme-0100"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0101"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0102"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "viewer",
+  "object": "document:acme-0102"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0102"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0103"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "editor",
+  "object": "document:acme-0104"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "editor",
+  "object": "document:acme-0104"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0104"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0105"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0106"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "editor",
+  "object": "document:acme-0107"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0107"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0108"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0109"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0110"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0111"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0112"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0112"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0113"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0114"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0115"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "viewer",
+  "object": "document:acme-0115"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0115"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "viewer",
+  "object": "document:acme-0115"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0116"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "viewer",
+  "object": "document:acme-0116"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "viewer",
+  "object": "document:acme-0116"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0116"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0117"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0118"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0119"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0120"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0121"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0122"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0123"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0124"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0125"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0126"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0127"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "editor",
+  "object": "document:acme-0128"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0128"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0129"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0130"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0131"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "viewer",
+  "object": "document:acme-0131"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0132"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "viewer",
+  "object": "document:acme-0132"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0132"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "viewer",
+  "object": "document:acme-0132"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0133"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0134"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "editor",
+  "object": "document:acme-0135"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0135"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0136"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0137"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "viewer",
+  "object": "document:acme-0137"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "editor",
+  "object": "document:acme-0138"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "editor",
+  "object": "document:acme-0138"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0138"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0139"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0140"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0141"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0142"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0143"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0144"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "viewer",
+  "object": "document:acme-0144"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0144"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0145"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0146"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "viewer",
+  "object": "document:acme-0146"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0147"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0148"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0149"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0149"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "viewer",
+  "object": "document:acme-0149"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0150"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "viewer",
+  "object": "document:acme-0150"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0151"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0152"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "viewer",
+  "object": "document:acme-0152"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0153"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "editor",
+  "object": "document:acme-0154"
+ },
+ {
+  "user": "user:lea.laurent",
+  "relation": "editor",
+  "object": "document:acme-0154"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0154"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0155"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0156"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0157"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0158"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0159"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0159"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "viewer",
+  "object": "document:acme-0159"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "viewer",
+  "object": "document:acme-0159"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0160"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0161"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0162"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0163"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "viewer",
+  "object": "document:acme-0163"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "viewer",
+  "object": "document:acme-0163"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0164"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "editor",
+  "object": "document:acme-0165"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0165"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0166"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "viewer",
+  "object": "document:acme-0166"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "viewer",
+  "object": "document:acme-0166"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "viewer",
+  "object": "document:acme-0166"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0167"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "viewer",
+  "object": "document:acme-0167"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0168"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0169"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "editor",
+  "object": "document:acme-0170"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0170"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "editor",
+  "object": "document:acme-0171"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0171"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0172"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "viewer",
+  "object": "document:acme-0172"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0172"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0173"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0174"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "viewer",
+  "object": "document:acme-0174"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "viewer",
+  "object": "document:acme-0174"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "viewer",
+  "object": "document:acme-0174"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0175"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0176"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "viewer",
+  "object": "document:acme-0176"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "viewer",
+  "object": "document:acme-0176"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0176"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0177"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0177"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0178"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0179"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0180"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0181"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "viewer",
+  "object": "document:acme-0181"
+ },
+ {
+  "user": "user:farid.richard",
+  "relation": "viewer",
+  "object": "document:acme-0181"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "viewer",
+  "object": "document:acme-0181"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "editor",
+  "object": "document:acme-0182"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0182"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0183"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0184"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0185"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0186"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "viewer",
+  "object": "document:acme-0186"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0186"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "viewer",
+  "object": "document:acme-0186"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0187"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0188"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "viewer",
+  "object": "document:acme-0188"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0188"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "viewer",
+  "object": "document:acme-0188"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0189"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0190"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0191"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0192"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "viewer",
+  "object": "document:acme-0192"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0192"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0193"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0194"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0195"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0196"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0197"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "viewer",
+  "object": "document:acme-0197"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "viewer",
+  "object": "document:acme-0197"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0197"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "editor",
+  "object": "document:acme-0198"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "editor",
+  "object": "document:acme-0198"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0198"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0199"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "viewer",
+  "object": "document:acme-0199"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "viewer",
+  "object": "document:acme-0199"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "viewer",
+  "object": "document:acme-0199"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0200"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0201"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0202"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0203"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "viewer",
+  "object": "document:acme-0203"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0203"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "viewer",
+  "object": "document:acme-0203"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0204"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0205"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0206"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0207"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0208"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0209"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0210"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0211"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0212"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0213"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0214"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0215"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0216"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0216"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0217"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "viewer",
+  "object": "document:acme-0217"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0218"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0219"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0220"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "viewer",
+  "object": "document:acme-0220"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0221"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0222"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0223"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "viewer",
+  "object": "document:acme-0223"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0224"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0225"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0226"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0227"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "viewer",
+  "object": "document:acme-0227"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "viewer",
+  "object": "document:acme-0227"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0228"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "viewer",
+  "object": "document:acme-0228"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0229"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "viewer",
+  "object": "document:acme-0229"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0229"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0229"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0230"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "viewer",
+  "object": "document:acme-0230"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0230"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "viewer",
+  "object": "document:acme-0230"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "editor",
+  "object": "document:acme-0231"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0231"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0232"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0233"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0234"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0235"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0236"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0237"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "viewer",
+  "object": "document:acme-0237"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "viewer",
+  "object": "document:acme-0237"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0238"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0238"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "viewer",
+  "object": "document:acme-0238"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0239"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "viewer",
+  "object": "document:acme-0239"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0240"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0241"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0242"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "viewer",
+  "object": "document:acme-0242"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "viewer",
+  "object": "document:acme-0242"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0242"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0243"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "editor",
+  "object": "document:acme-0244"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0244"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0245"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "viewer",
+  "object": "document:acme-0245"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0245"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0246"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0247"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "viewer",
+  "object": "document:acme-0247"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0248"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0249"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0250"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0251"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0252"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0253"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0254"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0255"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0256"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0257"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0258"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0259"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0260"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0261"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0262"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0263"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0264"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0265"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0265"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0266"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "viewer",
+  "object": "document:acme-0266"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "viewer",
+  "object": "document:acme-0266"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "viewer",
+  "object": "document:acme-0266"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0267"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "viewer",
+  "object": "document:acme-0267"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0268"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0269"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0270"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0271"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0272"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0273"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0274"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0275"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0276"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0277"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0278"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "viewer",
+  "object": "document:acme-0278"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0279"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0280"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "editor",
+  "object": "document:acme-0281"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0281"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0282"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "viewer",
+  "object": "document:acme-0282"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0283"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0284"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0285"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0286"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0287"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "viewer",
+  "object": "document:acme-0287"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "viewer",
+  "object": "document:acme-0287"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0288"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0289"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0290"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0291"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0292"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "viewer",
+  "object": "document:acme-0292"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0292"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0293"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0294"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0295"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0296"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "viewer",
+  "object": "document:acme-0296"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "viewer",
+  "object": "document:acme-0296"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0296"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0297"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "viewer",
+  "object": "document:acme-0297"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0298"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "viewer",
+  "object": "document:acme-0298"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "viewer",
+  "object": "document:acme-0298"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0299"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "viewer",
+  "object": "document:acme-0299"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "viewer",
+  "object": "document:acme-0299"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0300"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0301"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0302"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0303"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0304"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0305"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0306"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0306"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "viewer",
+  "object": "document:acme-0306"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "viewer",
+  "object": "document:acme-0306"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0307"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0308"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0309"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "viewer",
+  "object": "document:acme-0309"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0309"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "viewer",
+  "object": "document:acme-0309"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0310"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "viewer",
+  "object": "document:acme-0310"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "viewer",
+  "object": "document:acme-0310"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0311"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0312"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0313"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0314"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0315"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0316"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0317"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0318"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0319"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0320"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0321"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0322"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0322"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0323"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0324"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0325"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0326"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "viewer",
+  "object": "document:acme-0326"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "viewer",
+  "object": "document:acme-0326"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0327"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0328"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "viewer",
+  "object": "document:acme-0328"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "viewer",
+  "object": "document:acme-0328"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "viewer",
+  "object": "document:acme-0328"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0329"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0330"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0331"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "viewer",
+  "object": "document:acme-0331"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0332"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0333"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0334"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0335"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0336"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0337"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0337"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0337"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0338"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "viewer",
+  "object": "document:acme-0338"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "viewer",
+  "object": "document:acme-0338"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "viewer",
+  "object": "document:acme-0338"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0339"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0340"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "editor",
+  "object": "document:acme-0341"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0341"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "editor",
+  "object": "document:acme-0342"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0342"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0343"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0344"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0345"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "viewer",
+  "object": "document:acme-0345"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "viewer",
+  "object": "document:acme-0345"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0345"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0346"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0347"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0348"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0349"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0349"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0350"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "viewer",
+  "object": "document:acme-0350"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0351"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "viewer",
+  "object": "document:acme-0351"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "editor",
+  "object": "document:acme-0352"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "editor",
+  "object": "document:acme-0352"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0352"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0353"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0354"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0355"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "viewer",
+  "object": "document:acme-0355"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0356"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0356"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "viewer",
+  "object": "document:acme-0356"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "viewer",
+  "object": "document:acme-0356"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0357"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0358"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0359"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "editor",
+  "object": "document:acme-0360"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0360"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0361"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0361"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0361"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0362"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0363"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0364"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "viewer",
+  "object": "document:acme-0364"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "viewer",
+  "object": "document:acme-0364"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0365"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0365"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "viewer",
+  "object": "document:acme-0365"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0366"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0367"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "viewer",
+  "object": "document:acme-0367"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "viewer",
+  "object": "document:acme-0367"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0368"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "viewer",
+  "object": "document:acme-0368"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0369"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0370"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0371"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0372"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0373"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0373"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0374"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "viewer",
+  "object": "document:acme-0374"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0374"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0375"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0376"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "editor",
+  "object": "document:acme-0377"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "editor",
+  "object": "document:acme-0377"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0377"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0378"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0379"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0380"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0381"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0382"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0383"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0384"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0385"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0386"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0387"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0388"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0389"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0390"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0391"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0392"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0393"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0394"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0394"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "viewer",
+  "object": "document:acme-0394"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "viewer",
+  "object": "document:acme-0394"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0395"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "viewer",
+  "object": "document:acme-0395"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "viewer",
+  "object": "document:acme-0395"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0395"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0396"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0397"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0398"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0399"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0400"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0401"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0402"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "viewer",
+  "object": "document:acme-0402"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "viewer",
+  "object": "document:acme-0402"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "viewer",
+  "object": "document:acme-0402"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0403"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "viewer",
+  "object": "document:acme-0403"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "viewer",
+  "object": "document:acme-0403"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0403"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0404"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0405"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0406"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0407"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0408"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "viewer",
+  "object": "document:acme-0408"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0409"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0410"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0411"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0412"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0413"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0414"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0415"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0416"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "viewer",
+  "object": "document:acme-0416"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0417"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0418"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0419"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "viewer",
+  "object": "document:acme-0419"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0420"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0421"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "viewer",
+  "object": "document:acme-0421"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "viewer",
+  "object": "document:acme-0421"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "viewer",
+  "object": "document:acme-0421"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0422"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "editor",
+  "object": "document:acme-0423"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0423"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0424"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0425"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0426"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0427"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0428"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0428"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "viewer",
+  "object": "document:acme-0428"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0429"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0429"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0430"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "viewer",
+  "object": "document:acme-0430"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "viewer",
+  "object": "document:acme-0430"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "viewer",
+  "object": "document:acme-0430"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0431"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0432"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0433"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "viewer",
+  "object": "document:acme-0433"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "viewer",
+  "object": "document:acme-0433"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "viewer",
+  "object": "document:acme-0433"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "editor",
+  "object": "document:acme-0434"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "editor",
+  "object": "document:acme-0434"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0435"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0436"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0437"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0438"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "viewer",
+  "object": "document:acme-0438"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "viewer",
+  "object": "document:acme-0438"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "viewer",
+  "object": "document:acme-0438"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0439"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0440"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0441"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0442"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0442"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "viewer",
+  "object": "document:acme-0442"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "viewer",
+  "object": "document:acme-0442"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0443"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0444"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0445"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0446"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "editor",
+  "object": "document:acme-0447"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "editor",
+  "object": "document:acme-0447"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0448"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "viewer",
+  "object": "document:acme-0448"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "viewer",
+  "object": "document:acme-0448"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0449"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0449"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "viewer",
+  "object": "document:acme-0449"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "viewer",
+  "object": "document:acme-0449"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0450"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0451"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0451"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0452"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0453"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0454"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0455"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "viewer",
+  "object": "document:acme-0455"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "viewer",
+  "object": "document:acme-0455"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0455"
+ },
+ {
+  "user": "user:lea.laurent",
+  "relation": "editor",
+  "object": "document:acme-0456"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0456"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0457"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0458"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0459"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0460"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "viewer",
+  "object": "document:acme-0460"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0461"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0462"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0463"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0464"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0465"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "viewer",
+  "object": "document:acme-0465"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "viewer",
+  "object": "document:acme-0465"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0466"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0467"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0468"
+ },
+ {
+  "user": "user:farid.richard",
+  "relation": "viewer",
+  "object": "document:acme-0468"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0468"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "editor",
+  "object": "document:acme-0469"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0469"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0470"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "viewer",
+  "object": "document:acme-0470"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "viewer",
+  "object": "document:acme-0470"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0471"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0472"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "viewer",
+  "object": "document:acme-0472"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "viewer",
+  "object": "document:acme-0472"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0472"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0473"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "viewer",
+  "object": "document:acme-0473"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "viewer",
+  "object": "document:acme-0473"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0474"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0475"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0476"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "editor",
+  "object": "document:acme-0477"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0477"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0478"
+ },
+ {
+  "user": "source:nextcloud-stagiaires",
+  "relation": "parent",
+  "object": "document:acme-0479"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "viewer",
+  "object": "document:acme-0479"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "editor",
+  "object": "document:acme-0480"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "editor",
+  "object": "document:acme-0480"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "editor",
+  "object": "document:acme-0480"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0481"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "viewer",
+  "object": "document:acme-0481"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0482"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0483"
+ },
+ {
+  "user": "source:nextcloud-direction",
+  "relation": "parent",
+  "object": "document:acme-0484"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "viewer",
+  "object": "document:acme-0484"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "viewer",
+  "object": "document:acme-0484"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "viewer",
+  "object": "document:acme-0484"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0485"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0486"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "viewer",
+  "object": "document:acme-0486"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0487"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0488"
+ },
+ {
+  "user": "source:nextcloud-it",
+  "relation": "parent",
+  "object": "document:acme-0489"
+ },
+ {
+  "user": "user:lea.laurent",
+  "relation": "viewer",
+  "object": "document:acme-0489"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "viewer",
+  "object": "document:acme-0489"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "viewer",
+  "object": "document:acme-0489"
+ },
+ {
+  "user": "source:nextcloud-public",
+  "relation": "parent",
+  "object": "document:acme-0490"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "editor",
+  "object": "document:acme-0491"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "editor",
+  "object": "document:acme-0491"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "editor",
+  "object": "document:acme-0491"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0492"
+ },
+ {
+  "user": "source:nextcloud-magasin-lille",
+  "relation": "parent",
+  "object": "document:acme-0493"
+ },
+ {
+  "user": "source:nextcloud-magasin-lyon",
+  "relation": "parent",
+  "object": "document:acme-0494"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "editor",
+  "object": "document:acme-0495"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "editor",
+  "object": "document:acme-0495"
+ },
+ {
+  "user": "source:nextcloud-finance",
+  "relation": "parent",
+  "object": "document:acme-0496"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "viewer",
+  "object": "document:acme-0496"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "viewer",
+  "object": "document:acme-0496"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "viewer",
+  "object": "document:acme-0496"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0497"
+ },
+ {
+  "user": "source:nextcloud-rh",
+  "relation": "parent",
+  "object": "document:acme-0498"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "viewer",
+  "object": "document:acme-0498"
+ },
+ {
+  "user": "source:nextcloud-juridique",
+  "relation": "parent",
+  "object": "document:acme-0499"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:magasin-lille#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:magasin-lyon#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:stagiaires#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "can_invoke",
+  "object": "tool:hr.export"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "can_invoke",
+  "object": "tool:finance.report"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "can_invoke",
+  "object": "tool:it.reset-password"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "can_invoke",
+  "object": "tool:legal.sign"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:hr.export"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:finance.report"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:it.reset-password"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:legal.sign"
+ }
+]

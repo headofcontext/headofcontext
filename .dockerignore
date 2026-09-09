@@ -1,0 +1,10 @@
+.venv
+.git
+.mypy_cache
+.ruff_cache
+.pytest_cache
+.hypothesis
+tests
+fixtures/acme/generated/documents.json
+deploy
+scripts

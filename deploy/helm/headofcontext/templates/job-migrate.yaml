@@ -1,0 +1,57 @@
+{{- if .Values.migrations.enabled }}
+{{- if not (or .Values.migrations.secretName .Values.existingSecret) }}
+# The migration runs before the release resources exist (pre-install), so its DSN lives in a
+# hook-managed Secret of its own; with migrations.secretName or existingSecret, that one is used.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "headofcontext.fullname" . }}-migrate
+  labels: {{- include "headofcontext.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+type: Opaque
+stringData:
+  HOC_POSTGRES_DSN: {{ required "postgres.dsn, existingSecret or migrations.secretName is required" .Values.postgres.dsn | quote }}
+---
+{{- end }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "headofcontext.fullname" . }}-migrate
+  labels: {{- include "headofcontext.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 3
+  template:
+    metadata:
+      labels: {{- include "headofcontext.labels" . | nindent 8 }}
+        app.kubernetes.io/component: migrate
+    spec:
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: migrate
+          image: {{ include "headofcontext.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
+          command: ["hoc", "--env-file", "/dev/null", "db", "migrate"]
+          env:
+            - name: HOC_POSTGRES_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.migrations.secretName | default .Values.existingSecret | default (printf "%s-migrate" (include "headofcontext.fullname" .)) }}
+                  key: HOC_POSTGRES_DSN
+          resources: {{- toYaml .Values.migrations.resources | nindent 12 }}
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
+{{- end }}

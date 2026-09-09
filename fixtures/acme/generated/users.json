@@ -1,0 +1,608 @@
+[
+ {
+  "id": "user:alice.martin",
+  "username": "alice.martin",
+  "first_name": "Alice",
+  "last_name": "Martin",
+  "email": "alice.martin@acme.example",
+  "department": "direction",
+  "groups": [
+   "group:direction"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:bruno.bernard",
+  "username": "bruno.bernard",
+  "first_name": "Bruno",
+  "last_name": "Bernard",
+  "email": "bruno.bernard@acme.example",
+  "department": "direction",
+  "groups": [
+   "group:direction"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:camille.dubois",
+  "username": "camille.dubois",
+  "first_name": "Camille",
+  "last_name": "Dubois",
+  "email": "camille.dubois@acme.example",
+  "department": "direction",
+  "groups": [
+   "group:direction"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:david.thomas",
+  "username": "david.thomas",
+  "first_name": "David",
+  "last_name": "Thomas",
+  "email": "david.thomas@acme.example",
+  "department": "direction",
+  "groups": [
+   "group:direction"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:emma.robert",
+  "username": "emma.robert",
+  "first_name": "Emma",
+  "last_name": "Robert",
+  "email": "emma.robert@acme.example",
+  "department": "direction",
+  "groups": [
+   "group:direction"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:farid.richard",
+  "username": "farid.richard",
+  "first_name": "Farid",
+  "last_name": "Richard",
+  "email": "farid.richard@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:gaelle.petit",
+  "username": "gaelle.petit",
+  "first_name": "Gaëlle",
+  "last_name": "Petit",
+  "email": "gaelle.petit@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh",
+   "group:stagiaires"
+  ],
+  "intern": true
+ },
+ {
+  "id": "user:hugo.durand",
+  "username": "hugo.durand",
+  "first_name": "Hugo",
+  "last_name": "Durand",
+  "email": "hugo.durand@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:ines.leroy",
+  "username": "ines.leroy",
+  "first_name": "Inès",
+  "last_name": "Leroy",
+  "email": "ines.leroy@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:julien.moreau",
+  "username": "julien.moreau",
+  "first_name": "Julien",
+  "last_name": "Moreau",
+  "email": "julien.moreau@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:karim.simon",
+  "username": "karim.simon",
+  "first_name": "Karim",
+  "last_name": "Simon",
+  "email": "karim.simon@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:lea.laurent",
+  "username": "lea.laurent",
+  "first_name": "Léa",
+  "last_name": "Laurent",
+  "email": "lea.laurent@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:mathis.lefebvre",
+  "username": "mathis.lefebvre",
+  "first_name": "Mathis",
+  "last_name": "Lefebvre",
+  "email": "mathis.lefebvre@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh",
+   "group:stagiaires"
+  ],
+  "intern": true
+ },
+ {
+  "id": "user:nadia.michel",
+  "username": "nadia.michel",
+  "first_name": "Nadia",
+  "last_name": "Michel",
+  "email": "nadia.michel@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:oscar.garcia",
+  "username": "oscar.garcia",
+  "first_name": "Oscar",
+  "last_name": "Garcia",
+  "email": "oscar.garcia@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:pauline.david",
+  "username": "pauline.david",
+  "first_name": "Pauline",
+  "last_name": "David",
+  "email": "pauline.david@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:quentin.bertrand",
+  "username": "quentin.bertrand",
+  "first_name": "Quentin",
+  "last_name": "Bertrand",
+  "email": "quentin.bertrand@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:rania.roux",
+  "username": "rania.roux",
+  "first_name": "Rania",
+  "last_name": "Roux",
+  "email": "rania.roux@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:samir.vincent",
+  "username": "samir.vincent",
+  "first_name": "Samir",
+  "last_name": "Vincent",
+  "email": "samir.vincent@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:theo.fournier",
+  "username": "theo.fournier",
+  "first_name": "Théo",
+  "last_name": "Fournier",
+  "email": "theo.fournier@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance",
+   "group:stagiaires"
+  ],
+  "intern": true
+ },
+ {
+  "id": "user:ursule.morel",
+  "username": "ursule.morel",
+  "first_name": "Ursule",
+  "last_name": "Morel",
+  "email": "ursule.morel@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille",
+   "group:stagiaires"
+  ],
+  "intern": true
+ },
+ {
+  "id": "user:victor.girard",
+  "username": "victor.girard",
+  "first_name": "Victor",
+  "last_name": "Girard",
+  "email": "victor.girard@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:wassim.andre",
+  "username": "wassim.andre",
+  "first_name": "Wassim",
+  "last_name": "André",
+  "email": "wassim.andre@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it",
+   "group:stagiaires"
+  ],
+  "intern": true
+ },
+ {
+  "id": "user:xavier.lefevre",
+  "username": "xavier.lefevre",
+  "first_name": "Xavier",
+  "last_name": "Lefèvre",
+  "email": "xavier.lefevre@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:yasmine.mercier",
+  "username": "yasmine.mercier",
+  "first_name": "Yasmine",
+  "last_name": "Mercier",
+  "email": "yasmine.mercier@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:zoe.dupont",
+  "username": "zoe.dupont",
+  "first_name": "Zoé",
+  "last_name": "Dupont",
+  "email": "zoe.dupont@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:adrien.lambert",
+  "username": "adrien.lambert",
+  "first_name": "Adrien",
+  "last_name": "Lambert",
+  "email": "adrien.lambert@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:benedicte.bonnet",
+  "username": "benedicte.bonnet",
+  "first_name": "Bénédicte",
+  "last_name": "Bonnet",
+  "email": "benedicte.bonnet@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:clement.francois",
+  "username": "clement.francois",
+  "first_name": "Clément",
+  "last_name": "François",
+  "email": "clement.francois@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:dorian.martinez",
+  "username": "dorian.martinez",
+  "first_name": "Dorian",
+  "last_name": "Martinez",
+  "email": "dorian.martinez@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:elise.legrand",
+  "username": "elise.legrand",
+  "first_name": "Élise",
+  "last_name": "Legrand",
+  "email": "elise.legrand@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:fabien.garnier",
+  "username": "fabien.garnier",
+  "first_name": "Fabien",
+  "last_name": "Garnier",
+  "email": "fabien.garnier@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:garance.faure",
+  "username": "garance.faure",
+  "first_name": "Garance",
+  "last_name": "Faure",
+  "email": "garance.faure@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:helene.rousseau",
+  "username": "helene.rousseau",
+  "first_name": "Hélène",
+  "last_name": "Rousseau",
+  "email": "helene.rousseau@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:ismael.blanc",
+  "username": "ismael.blanc",
+  "first_name": "Ismaël",
+  "last_name": "Blanc",
+  "email": "ismael.blanc@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:jade.guerin",
+  "username": "jade.guerin",
+  "first_name": "Jade",
+  "last_name": "Guérin",
+  "email": "jade.guerin@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:kevin.muller",
+  "username": "kevin.muller",
+  "first_name": "Kevin",
+  "last_name": "Muller",
+  "email": "kevin.muller@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:louise.henry",
+  "username": "louise.henry",
+  "first_name": "Louise",
+  "last_name": "Henry",
+  "email": "louise.henry@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:marc.roussel",
+  "username": "marc.roussel",
+  "first_name": "Marc",
+  "last_name": "Roussel",
+  "email": "marc.roussel@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:noemie.nicolas",
+  "username": "noemie.nicolas",
+  "first_name": "Noémie",
+  "last_name": "Nicolas",
+  "email": "noemie.nicolas@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:olivier.perrin",
+  "username": "olivier.perrin",
+  "first_name": "Olivier",
+  "last_name": "Perrin",
+  "email": "olivier.perrin@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:perrine.morin",
+  "username": "perrine.morin",
+  "first_name": "Perrine",
+  "last_name": "Morin",
+  "email": "perrine.morin@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:rachid.mathieu",
+  "username": "rachid.mathieu",
+  "first_name": "Rachid",
+  "last_name": "Mathieu",
+  "email": "rachid.mathieu@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:sophie.clement",
+  "username": "sophie.clement",
+  "first_name": "Sophie",
+  "last_name": "Clément",
+  "email": "sophie.clement@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:tristan.gauthier",
+  "username": "tristan.gauthier",
+  "first_name": "Tristan",
+  "last_name": "Gauthier",
+  "email": "tristan.gauthier@acme.example",
+  "department": "magasin-lille",
+  "groups": [
+   "group:magasin-lille"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:valerie.dumont",
+  "username": "valerie.dumont",
+  "first_name": "Valérie",
+  "last_name": "Dumont",
+  "email": "valerie.dumont@acme.example",
+  "department": "magasin-lyon",
+  "groups": [
+   "group:magasin-lyon",
+   "group:stagiaires"
+  ],
+  "intern": true
+ },
+ {
+  "id": "user:william.lopez",
+  "username": "william.lopez",
+  "first_name": "William",
+  "last_name": "Lopez",
+  "email": "william.lopez@acme.example",
+  "department": "it",
+  "groups": [
+   "group:it"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:yann.fontaine",
+  "username": "yann.fontaine",
+  "first_name": "Yann",
+  "last_name": "Fontaine",
+  "email": "yann.fontaine@acme.example",
+  "department": "juridique",
+  "groups": [
+   "group:juridique"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:zacharie.chevalier",
+  "username": "zacharie.chevalier",
+  "first_name": "Zacharie",
+  "last_name": "Chevalier",
+  "email": "zacharie.chevalier@acme.example",
+  "department": "rh",
+  "groups": [
+   "group:rh"
+  ],
+  "intern": false
+ },
+ {
+  "id": "user:anais.robin",
+  "username": "anais.robin",
+  "first_name": "Anaïs",
+  "last_name": "Robin",
+  "email": "anais.robin@acme.example",
+  "department": "finance",
+  "groups": [
+   "group:finance"
+  ],
+  "intern": false
+ }
+]

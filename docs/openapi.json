@@ -1,0 +1,2612 @@
+{
+ "components": {
+  "schemas": {
+   "ApprovalModel": {
+    "properties": {
+     "actor": {
+      "title": "Actor",
+      "type": "string"
+     },
+     "approval_reason": {
+      "title": "Approval Reason",
+      "type": "string"
+     },
+     "args_hash": {
+      "title": "Args Hash",
+      "type": "string"
+     },
+     "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+     },
+     "delegation_depth": {
+      "title": "Delegation Depth",
+      "type": "integer"
+     },
+     "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+     },
+     "request_id": {
+      "title": "Request Id",
+      "type": "string"
+     },
+     "resolution_reason": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Resolution Reason"
+     },
+     "resolved_at": {
+      "anyOf": [
+       {
+        "format": "date-time",
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Resolved At"
+     },
+     "resolved_by": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Resolved By"
+     },
+     "status": {
+      "title": "Status",
+      "type": "string"
+     },
+     "subject": {
+      "title": "Subject",
+      "type": "string"
+     },
+     "tool": {
+      "title": "Tool",
+      "type": "string"
+     }
+    },
+    "required": [
+     "request_id",
+     "subject",
+     "actor",
+     "delegation_depth",
+     "tool",
+     "args_hash",
+     "status",
+     "created_at",
+     "expires_at",
+     "approval_reason"
+    ],
+    "title": "ApprovalModel",
+    "type": "object"
+   },
+   "ApprovalsResponse": {
+    "properties": {
+     "requests": {
+      "items": {
+       "$ref": "#/components/schemas/ApprovalModel"
+      },
+      "title": "Requests",
+      "type": "array"
+     }
+    },
+    "required": [
+     "requests"
+    ],
+    "title": "ApprovalsResponse",
+    "type": "object"
+   },
+   "AttenuateRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "scope": {
+      "$ref": "#/components/schemas/ScopeModel"
+     },
+     "to_actor": {
+      "maxLength": 256,
+      "minLength": 7,
+      "title": "To Actor",
+      "type": "string"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "to_actor",
+     "scope"
+    ],
+    "title": "AttenuateRequest",
+    "type": "object"
+   },
+   "CapabilityModel": {
+    "additionalProperties": false,
+    "properties": {
+     "kind": {
+      "enum": [
+       "read",
+       "act",
+       "remember"
+      ],
+      "title": "Kind",
+      "type": "string"
+     },
+     "resource": {
+      "maxLength": 512,
+      "minLength": 3,
+      "title": "Resource",
+      "type": "string"
+     }
+    },
+    "required": [
+     "kind",
+     "resource"
+    ],
+    "title": "CapabilityModel",
+    "type": "object"
+   },
+   "ChainModel": {
+    "properties": {
+     "actor": {
+      "title": "Actor",
+      "type": "string"
+     },
+     "delegation": {
+      "items": {
+       "$ref": "#/components/schemas/DelegationModel"
+      },
+      "title": "Delegation",
+      "type": "array"
+     },
+     "depth": {
+      "title": "Depth",
+      "type": "integer"
+     },
+     "root_actor": {
+      "title": "Root Actor",
+      "type": "string"
+     },
+     "scope": {
+      "$ref": "#/components/schemas/ScopeModel"
+     },
+     "subject": {
+      "title": "Subject",
+      "type": "string"
+     }
+    },
+    "required": [
+     "subject",
+     "actor",
+     "root_actor",
+     "depth",
+     "scope",
+     "delegation"
+    ],
+    "title": "ChainModel",
+    "type": "object"
+   },
+   "DecisionModel": {
+    "properties": {
+     "decision_id": {
+      "title": "Decision Id",
+      "type": "string"
+     },
+     "engine_latency_ms": {
+      "title": "Engine Latency Ms",
+      "type": "number"
+     },
+     "outcome": {
+      "enum": [
+       "ALLOW",
+       "DENY",
+       "REQUIRE_APPROVAL"
+      ],
+      "title": "Outcome",
+      "type": "string"
+     },
+     "reason": {
+      "title": "Reason",
+      "type": "string"
+     },
+     "resource": {
+      "title": "Resource",
+      "type": "string"
+     },
+     "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+     }
+    },
+    "required": [
+     "outcome",
+     "reason",
+     "decision_id",
+     "resource",
+     "timestamp",
+     "engine_latency_ms"
+    ],
+    "title": "DecisionModel",
+    "type": "object"
+   },
+   "DelegationModel": {
+    "properties": {
+     "from_actor": {
+      "title": "From Actor",
+      "type": "string"
+     },
+     "scope": {
+      "$ref": "#/components/schemas/ScopeModel"
+     },
+     "to_actor": {
+      "title": "To Actor",
+      "type": "string"
+     }
+    },
+    "required": [
+     "from_actor",
+     "to_actor",
+     "scope"
+    ],
+    "title": "DelegationModel",
+    "type": "object"
+   },
+   "ErrorResponse": {
+    "properties": {
+     "detail": {
+      "title": "Detail",
+      "type": "string"
+     },
+     "reason": {
+      "title": "Reason",
+      "type": "string"
+     }
+    },
+    "required": [
+     "reason",
+     "detail"
+    ],
+    "title": "ErrorResponse",
+    "type": "object"
+   },
+   "FilterItem": {
+    "additionalProperties": true,
+    "properties": {
+     "id": {
+      "title": "Id"
+     }
+    },
+    "title": "FilterItem",
+    "type": "object"
+   },
+   "FilterRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "items": {
+      "items": {
+       "$ref": "#/components/schemas/FilterItem"
+      },
+      "maxItems": 5000,
+      "title": "Items",
+      "type": "array"
+     },
+     "relation": {
+      "default": "viewer",
+      "enum": [
+       "viewer",
+       "editor"
+      ],
+      "title": "Relation",
+      "type": "string"
+     },
+     "strategy": {
+      "default": "auto",
+      "enum": [
+       "auto",
+       "batch",
+       "list_objects"
+      ],
+      "title": "Strategy",
+      "type": "string"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "items"
+    ],
+    "title": "FilterRequest",
+    "type": "object"
+   },
+   "FilterResponse": {
+    "properties": {
+     "dropped": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Dropped",
+      "type": "array"
+     },
+     "kept": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Kept",
+      "type": "array"
+     },
+     "strategy": {
+      "title": "Strategy",
+      "type": "string"
+     }
+    },
+    "required": [
+     "kept",
+     "dropped",
+     "strategy"
+    ],
+    "title": "FilterResponse",
+    "type": "object"
+   },
+   "ForgetRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "memory_id": {
+      "maxLength": 256,
+      "minLength": 8,
+      "title": "Memory Id",
+      "type": "string"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "memory_id"
+    ],
+    "title": "ForgetRequest",
+    "type": "object"
+   },
+   "GateRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "args": {
+      "additionalProperties": true,
+      "title": "Args",
+      "type": "object"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     },
+     "tool": {
+      "maxLength": 512,
+      "minLength": 6,
+      "title": "Tool",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "tool"
+    ],
+    "title": "GateRequest",
+    "type": "object"
+   },
+   "GateResponse": {
+    "properties": {
+     "approval": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ApprovalModel"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "decision": {
+      "$ref": "#/components/schemas/DecisionModel"
+     }
+    },
+    "required": [
+     "decision"
+    ],
+    "title": "GateResponse",
+    "type": "object"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "title": "Detail",
+      "type": "array"
+     }
+    },
+    "title": "HTTPValidationError",
+    "type": "object"
+   },
+   "HealthResponse": {
+    "properties": {
+     "connectors": {
+      "title": "Connectors",
+      "type": "string"
+     },
+     "service": {
+      "title": "Service",
+      "type": "string"
+     },
+     "status": {
+      "title": "Status",
+      "type": "string"
+     }
+    },
+    "required": [
+     "status",
+     "service",
+     "connectors"
+    ],
+    "title": "HealthResponse",
+    "type": "object"
+   },
+   "InspectResponse": {
+    "properties": {
+     "chain": {
+      "$ref": "#/components/schemas/ChainModel"
+     },
+     "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+     },
+     "revocation_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Revocation Ids",
+      "type": "array"
+     }
+    },
+    "required": [
+     "chain",
+     "expires_at",
+     "revocation_ids"
+    ],
+    "title": "InspectResponse",
+    "type": "object"
+   },
+   "IssueRequest": {
+    "additionalProperties": false,
+    "description": "Exactly one of ``user_token`` (the human is present) or ``mandate_id`` (ADR 0016).",
+    "properties": {
+     "mandate_id": {
+      "anyOf": [
+       {
+        "maxLength": 64,
+        "minLength": 8,
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Mandate Id"
+     },
+     "scope": {
+      "$ref": "#/components/schemas/ScopeModel"
+     },
+     "ttl_minutes": {
+      "anyOf": [
+       {
+        "maximum": 1440.0,
+        "minimum": 1.0,
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Ttl Minutes"
+     },
+     "user_token": {
+      "anyOf": [
+       {
+        "maxLength": 65536,
+        "minLength": 16,
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "User Token"
+     }
+    },
+    "required": [
+     "scope"
+    ],
+    "title": "IssueRequest",
+    "type": "object"
+   },
+   "MandateCreateRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "agent": {
+      "maxLength": 256,
+      "minLength": 7,
+      "title": "Agent",
+      "type": "string"
+     },
+     "expires_in_hours": {
+      "maximum": 8784.0,
+      "minimum": 1.0,
+      "title": "Expires In Hours",
+      "type": "integer"
+     },
+     "max_token_ttl_minutes": {
+      "anyOf": [
+       {
+        "maximum": 1440.0,
+        "minimum": 1.0,
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Max Token Ttl Minutes"
+     },
+     "scope": {
+      "$ref": "#/components/schemas/ScopeModel"
+     }
+    },
+    "required": [
+     "agent",
+     "scope",
+     "expires_in_hours"
+    ],
+    "title": "MandateCreateRequest",
+    "type": "object"
+   },
+   "MandateModel": {
+    "properties": {
+     "agent": {
+      "title": "Agent",
+      "type": "string"
+     },
+     "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+     },
+     "created_by": {
+      "title": "Created By",
+      "type": "string"
+     },
+     "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+     },
+     "mandate_id": {
+      "title": "Mandate Id",
+      "type": "string"
+     },
+     "max_token_ttl_minutes": {
+      "title": "Max Token Ttl Minutes",
+      "type": "integer"
+     },
+     "revocation_reason": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Revocation Reason"
+     },
+     "revoked_at": {
+      "anyOf": [
+       {
+        "format": "date-time",
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Revoked At"
+     },
+     "scope": {
+      "$ref": "#/components/schemas/ScopeModel"
+     },
+     "status": {
+      "title": "Status",
+      "type": "string"
+     },
+     "subject": {
+      "title": "Subject",
+      "type": "string"
+     }
+    },
+    "required": [
+     "mandate_id",
+     "subject",
+     "agent",
+     "scope",
+     "status",
+     "created_at",
+     "expires_at",
+     "max_token_ttl_minutes",
+     "created_by"
+    ],
+    "title": "MandateModel",
+    "type": "object"
+   },
+   "MandateRevokeRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "reason": {
+      "default": "revoked by subject",
+      "maxLength": 512,
+      "title": "Reason",
+      "type": "string"
+     }
+    },
+    "title": "MandateRevokeRequest",
+    "type": "object"
+   },
+   "MandatesResponse": {
+    "properties": {
+     "mandates": {
+      "items": {
+       "$ref": "#/components/schemas/MandateModel"
+      },
+      "title": "Mandates",
+      "type": "array"
+     }
+    },
+    "required": [
+     "mandates"
+    ],
+    "title": "MandatesResponse",
+    "type": "object"
+   },
+   "MemoryModel": {
+    "properties": {
+     "content": {
+      "title": "Content",
+      "type": "string"
+     },
+     "created_at": {
+      "anyOf": [
+       {
+        "format": "date-time",
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Created At"
+     },
+     "derived_from": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Derived From",
+      "type": "array"
+     },
+     "memory_id": {
+      "title": "Memory Id",
+      "type": "string"
+     },
+     "written_by": {
+      "title": "Written By",
+      "type": "string"
+     },
+     "written_for": {
+      "title": "Written For",
+      "type": "string"
+     }
+    },
+    "required": [
+     "memory_id",
+     "content",
+     "derived_from",
+     "written_for",
+     "written_by",
+     "created_at"
+    ],
+    "title": "MemoryModel",
+    "type": "object"
+   },
+   "ReadyResponse": {
+    "description": "Readiness (ADR 0020): ``ready`` with every check ``ok``/``fresh``, else ``not_ready``.",
+    "properties": {
+     "checks": {
+      "additionalProperties": {
+       "type": "string"
+      },
+      "title": "Checks",
+      "type": "object"
+     },
+     "status": {
+      "enum": [
+       "ready",
+       "not_ready"
+      ],
+      "title": "Status",
+      "type": "string"
+     }
+    },
+    "required": [
+     "status",
+     "checks"
+    ],
+    "title": "ReadyResponse",
+    "type": "object"
+   },
+   "RecallRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "limit": {
+      "default": 10,
+      "maximum": 50.0,
+      "minimum": 1.0,
+      "title": "Limit",
+      "type": "integer"
+     },
+     "query": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "query"
+    ],
+    "title": "RecallRequest",
+    "type": "object"
+   },
+   "RecallResponse": {
+    "properties": {
+     "memories": {
+      "items": {
+       "$ref": "#/components/schemas/MemoryModel"
+      },
+      "title": "Memories",
+      "type": "array"
+     }
+    },
+    "required": [
+     "memories"
+    ],
+    "title": "RecallResponse",
+    "type": "object"
+   },
+   "RedeemRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "args": {
+      "additionalProperties": true,
+      "title": "Args",
+      "type": "object"
+     },
+     "request_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     },
+     "tool": {
+      "maxLength": 512,
+      "minLength": 6,
+      "title": "Tool",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "tool",
+     "request_id"
+    ],
+    "title": "RedeemRequest",
+    "type": "object"
+   },
+   "RememberRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "content": {
+      "maxLength": 65536,
+      "minLength": 1,
+      "title": "Content",
+      "type": "string"
+     },
+     "derived_from": {
+      "items": {
+       "type": "string"
+      },
+      "maxItems": 256,
+      "title": "Derived From",
+      "type": "array"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "content"
+    ],
+    "title": "RememberRequest",
+    "type": "object"
+   },
+   "ResolveRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "approved": {
+      "title": "Approved",
+      "type": "boolean"
+     },
+     "reason": {
+      "default": "",
+      "maxLength": 1024,
+      "title": "Reason",
+      "type": "string"
+     }
+    },
+    "required": [
+     "approved"
+    ],
+    "title": "ResolveRequest",
+    "type": "object"
+   },
+   "RevokeRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "reason": {
+      "default": "revoked by holder",
+      "maxLength": 512,
+      "title": "Reason",
+      "type": "string"
+     },
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token"
+    ],
+    "title": "RevokeRequest",
+    "type": "object"
+   },
+   "ScopeModel": {
+    "additionalProperties": false,
+    "properties": {
+     "capabilities": {
+      "items": {
+       "$ref": "#/components/schemas/CapabilityModel"
+      },
+      "maxItems": 256,
+      "title": "Capabilities",
+      "type": "array"
+     }
+    },
+    "required": [
+     "capabilities"
+    ],
+    "title": "ScopeModel",
+    "type": "object"
+   },
+   "TokenBody": {
+    "additionalProperties": false,
+    "properties": {
+     "token": {
+      "maxLength": 65536,
+      "minLength": 16,
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token"
+    ],
+    "title": "TokenBody",
+    "type": "object"
+   },
+   "TokenResponse": {
+    "properties": {
+     "chain": {
+      "$ref": "#/components/schemas/ChainModel"
+     },
+     "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+     },
+     "revocation_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Revocation Ids",
+      "type": "array"
+     },
+     "token": {
+      "title": "Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token",
+     "chain",
+     "expires_at",
+     "revocation_ids"
+    ],
+    "title": "TokenResponse",
+    "type": "object"
+   },
+   "ValidationError": {
+    "properties": {
+     "ctx": {
+      "title": "Context",
+      "type": "object"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "title": "Location",
+      "type": "array"
+     },
+     "msg": {
+      "title": "Message",
+      "type": "string"
+     },
+     "type": {
+      "title": "Error Type",
+      "type": "string"
+     }
+    },
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError",
+    "type": "object"
+   }
+  }
+ },
+ "info": {
+  "description": "The single authorization layer for enterprise AI agents.",
+  "title": "HeadOfContext",
+  "version": "1.0.0"
+ },
+ "openapi": "3.1.0",
+ "paths": {
+  "/v1/actions/gate": {
+   "post": {
+    "operationId": "actions_gate_v1_actions_gate_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GateRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GateResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Actions Gate"
+   }
+  },
+  "/v1/actions/redeem": {
+   "post": {
+    "operationId": "actions_redeem_v1_actions_redeem_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RedeemRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/DecisionModel"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Actions Redeem"
+   }
+  },
+  "/v1/approvals": {
+   "get": {
+    "operationId": "approvals_list_v1_approvals_get",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ApprovalsResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Approvals List"
+   }
+  },
+  "/v1/approvals/{request_id}/resolve": {
+   "post": {
+    "operationId": "approvals_resolve_v1_approvals__request_id__resolve_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "request_id",
+      "required": true,
+      "schema": {
+       "title": "Request Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ResolveRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ApprovalModel"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Approvals Resolve"
+   }
+  },
+  "/v1/health": {
+   "get": {
+    "operationId": "health_v1_health_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HealthResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Health"
+   }
+  },
+  "/v1/mandates": {
+   "get": {
+    "operationId": "mandates_list_v1_mandates_get",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/MandatesResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Mandates List"
+   },
+   "post": {
+    "operationId": "mandates_create_v1_mandates_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/MandateCreateRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/MandateModel"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Mandates Create"
+   }
+  },
+  "/v1/mandates/{mandate_id}": {
+   "delete": {
+    "operationId": "mandates_revoke_v1_mandates__mandate_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "mandate_id",
+      "required": true,
+      "schema": {
+       "title": "Mandate Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/MandateRevokeRequest"
+         },
+         {
+          "type": "null"
+         }
+        ],
+        "title": "Body"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/MandateModel"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Mandates Revoke"
+   }
+  },
+  "/v1/memory/forget": {
+   "post": {
+    "operationId": "memory_forget_v1_memory_forget_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ForgetRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/MemoryModel"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Memory Forget"
+   }
+  },
+  "/v1/memory/recall": {
+   "post": {
+    "operationId": "memory_recall_v1_memory_recall_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RecallRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/RecallResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Memory Recall"
+   }
+  },
+  "/v1/memory/remember": {
+   "post": {
+    "operationId": "memory_remember_v1_memory_remember_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RememberRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/MemoryModel"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Memory Remember"
+   }
+  },
+  "/v1/read/filter": {
+   "post": {
+    "operationId": "read_filter_v1_read_filter_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/FilterRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/FilterResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Read Filter"
+   }
+  },
+  "/v1/ready": {
+   "get": {
+    "description": "Readiness (ADR 0020): every dependency the next decision needs, checked now.",
+    "operationId": "ready_v1_ready_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ReadyResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ReadyResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Ready"
+   }
+  },
+  "/v1/tokens/attenuate": {
+   "post": {
+    "operationId": "attenuate_v1_tokens_attenuate_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AttenuateRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/TokenResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Attenuate"
+   }
+  },
+  "/v1/tokens/inspect": {
+   "post": {
+    "operationId": "inspect_v1_tokens_inspect_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/TokenBody"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/InspectResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Inspect"
+   }
+  },
+  "/v1/tokens/issue": {
+   "post": {
+    "operationId": "issue_v1_tokens_issue_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/IssueRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/TokenResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Issue"
+   }
+  },
+  "/v1/tokens/revoke": {
+   "post": {
+    "operationId": "revoke_v1_tokens_revoke_post",
+    "parameters": [
+     {
+      "in": "header",
+      "name": "authorization",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Authorization"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RevokeRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/InspectResponse"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "401": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unauthorized"
+     },
+     "403": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Forbidden"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     },
+     "429": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Too Many Requests"
+     },
+     "503": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Service Unavailable"
+     }
+    },
+    "summary": "Revoke"
+   }
+  }
+ }
+}

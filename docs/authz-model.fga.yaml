@@ -1,0 +1,206 @@
+# Model tests — run with: docker compose run --rm fga-cli model test --tests /docs/authz-model.fga.yaml
+name: HeadOfContext model v1
+model_file: ./authz-model.fga
+
+tuples:
+  # groups
+  - user: user:alice
+    relation: member
+    object: group:rh
+  - user: user:bob
+    relation: member
+    object: group:magasin-lille
+  - user: group:rh#member
+    relation: member
+    object: group:direction-elargie
+  - user: user:carol
+    relation: member
+    object: group:direction
+  - user: group:direction#member
+    relation: member
+    object: group:direction-elargie
+  # sources
+  - user: group:rh#member
+    relation: viewer
+    object: source:nextcloud-rh
+  - user: group:direction#member
+    relation: editor
+    object: source:nextcloud-direction
+  - user: group:magasin-lille#member
+    relation: viewer
+    object: source:nextcloud-lille
+  # documents
+  - user: source:nextcloud-rh
+    relation: parent
+    object: document:grille-salaires
+  - user: source:nextcloud-direction
+    relation: parent
+    object: document:plan-strategique
+  - user: source:nextcloud-lille
+    relation: parent
+    object: document:planning-lille
+  - user: user:bob
+    relation: viewer
+    object: document:note-perso-bob
+  # agents
+  - user: user:alice
+    relation: can_act_on_behalf_of
+    object: agent:assistant
+  - user: agent:mailer
+    relation: delegate
+    object: agent:assistant
+  # tools
+  - user: group:rh#member
+    relation: can_invoke
+    object: tool:hr.export
+  - user: user:bob
+    relation: can_invoke
+    object: tool:mail.send
+  - user: group:direction#member
+    relation: approver
+    object: tool:hr.export
+  # memories
+  - user: document:grille-salaires
+    relation: derived_from
+    object: memory:m-rh-only
+  - user: document:grille-salaires
+    relation: derived_from
+    object: memory:m-mixed
+  - user: document:planning-lille
+    relation: derived_from
+    object: memory:m-mixed
+  - user: agent:assistant
+    relation: writer
+    object: memory:m-orphan
+
+tests:
+  - name: group inheritance through source
+    check:
+      - user: user:alice
+        object: document:grille-salaires
+        assertions:
+          viewer: true
+          editor: false
+      - user: user:bob
+        object: document:grille-salaires
+        assertions:
+          viewer: false
+      - user: user:carol
+        object: document:grille-salaires
+        assertions:
+          viewer: false
+
+  - name: editor implies viewer, nested groups
+    check:
+      - user: user:carol
+        object: document:plan-strategique
+        assertions:
+          viewer: true
+          editor: true
+      - user: user:carol
+        object: group:direction-elargie
+        assertions:
+          member: true
+      - user: user:alice
+        object: group:direction-elargie
+        assertions:
+          member: true
+      - user: user:alice
+        object: document:plan-strategique
+        assertions:
+          viewer: false
+
+  - name: direct document acl
+    check:
+      - user: user:bob
+        object: document:note-perso-bob
+        assertions:
+          viewer: true
+      - user: user:alice
+        object: document:note-perso-bob
+        assertions:
+          viewer: false
+
+  - name: agents never become viewers
+    check:
+      - user: agent:assistant
+        object: document:grille-salaires
+        assertions:
+          viewer: false
+      - user: user:alice
+        object: agent:assistant
+        assertions:
+          can_act_on_behalf_of: true
+      - user: user:bob
+        object: agent:assistant
+        assertions:
+          can_act_on_behalf_of: false
+
+  - name: tool invocation
+    check:
+      - user: user:alice
+        object: tool:hr.export
+        assertions:
+          can_invoke: true
+      - user: user:bob
+        object: tool:hr.export
+        assertions:
+          can_invoke: false
+      - user: user:bob
+        object: tool:mail.send
+        assertions:
+          can_invoke: true
+
+  - name: tool approval (ADR 0017)
+    check:
+      - user: user:carol
+        object: tool:hr.export
+        assertions:
+          approver: true
+          can_invoke: false
+      - user: user:alice
+        object: tool:hr.export
+        assertions:
+          approver: false
+      - user: user:bob
+        object: tool:hr.export
+        assertions:
+          approver: false
+
+  - name: memory provenance (some-source semantics at model level)
+    check:
+      - user: user:alice
+        object: memory:m-rh-only
+        assertions:
+          viewer: true
+      - user: user:bob
+        object: memory:m-rh-only
+        assertions:
+          viewer: false
+      # bob sees planning-lille, so the model says viewer; the memory layer's ALL rule denies him.
+      - user: user:bob
+        object: memory:m-mixed
+        assertions:
+          viewer: true
+      - user: user:carol
+        object: memory:m-mixed
+        assertions:
+          viewer: false
+      - user: user:alice
+        object: memory:m-orphan
+        assertions:
+          viewer: false
+
+  - name: list objects for a user
+    list_objects:
+      - user: user:alice
+        type: document
+        assertions:
+          viewer:
+            - document:grille-salaires
+      - user: user:bob
+        type: document
+        assertions:
+          viewer:
+            - document:planning-lille
+            - document:note-perso-bob

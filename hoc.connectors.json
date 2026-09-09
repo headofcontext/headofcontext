@@ -1,0 +1,16 @@
+[
+  {
+    "type": "keycloak_groups",
+    "base_url": "http://keycloak:8080",
+    "realm": "acme",
+    "admin_user": "admin",
+    "admin_password_env": "KEYCLOAK_ADMIN_PASSWORD"
+  },
+  {
+    "type": "nextcloud",
+    "base_url": "http://nextcloud:80",
+    "user": "admin",
+    "password_env": "NEXTCLOUD_PASSWORD",
+    "root": "/ACME"
+  }
+]

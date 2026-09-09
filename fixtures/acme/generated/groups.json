@@ -1,0 +1,46 @@
+[
+ {
+  "id": "group:direction",
+  "name": "direction",
+  "parents": [
+   "group:rh",
+   "group:finance",
+   "group:juridique"
+  ]
+ },
+ {
+  "id": "group:rh",
+  "name": "rh",
+  "parents": []
+ },
+ {
+  "id": "group:finance",
+  "name": "finance",
+  "parents": []
+ },
+ {
+  "id": "group:magasin-lille",
+  "name": "magasin-lille",
+  "parents": []
+ },
+ {
+  "id": "group:magasin-lyon",
+  "name": "magasin-lyon",
+  "parents": []
+ },
+ {
+  "id": "group:it",
+  "name": "it",
+  "parents": []
+ },
+ {
+  "id": "group:juridique",
+  "name": "juridique",
+  "parents": []
+ },
+ {
+  "id": "group:stagiaires",
+  "name": "stagiaires",
+  "parents": []
+ }
+]

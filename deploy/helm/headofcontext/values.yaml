@@ -1,0 +1,163 @@
+# The postgres memory backend (ADR 0021) is shared, so replicas can be raised freely; the chart
+# still refuses `memoryBackend: inmemory` with more than one replica (ADR 0018).
+replicaCount: 1
+
+image:
+  repository: ghcr.io/headofcontext/headofcontext
+  # Empty = the chart's appVersion.
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+# External services HeadOfContext depends on. None are deployed by this chart.
+openfga:
+  url: http://openfga:8080
+  storeId: ""
+  modelId: ""
+oidc:
+  issuer: https://keycloak.example.com/realms/acme
+  audience: headofcontext
+  clientId: headofcontext
+  # Optional: where the service reaches the IdP when that differs from the public issuer URL.
+  internalUrl: ""
+postgres:
+  # DSN is a secret; provide it through existingSecret or values (dev only).
+  dsn: ""
+
+# Secret handling: either reference an existing secret with keys HOC_POSTGRES_DSN,
+# HOC_OIDC_CLIENT_SECRET, HOC_ROOT_KEY_HEX (and optionally HOC_APPROVAL_WEBHOOK_SECRET,
+# HOC_ZEP_API_KEY), or let the chart create one from the values below.
+existingSecret: ""
+secrets:
+  oidcClientSecret: ""
+  rootKeyHex: ""
+  # HMAC key for the approval webhook signature (ADR 0014); empty = unsigned.
+  approvalWebhookSecret: ""
+  # Zep API key when memoryBackend is zep (ADR 0018).
+  zepApiKey: ""
+
+config:
+  approvalTools: "tool:payment.*"
+  # Production: true, with sync.enabled and a real connector, so a stale directory denies (T8).
+  # Off by default so a fresh install is ready before its first sync is configured.
+  connectorsRequired: false
+  connectorMaxStalenessMinutes: 60
+  tokenTtlMinutes: 60
+  # Requests per minute per caller (bearer fingerprint), per replica; 0 disables (ADR 0015).
+  rateLimitPerMinute: 600
+  # Root key rotation (docs/key-rotation.md): id of the signing key, verify-only public keys.
+  rootKeyId: 1
+  rootPublicKeys: ""
+  approvalTtlMinutes: 60
+  # Let the subject approve their own agents' actions (solo operators). Enterprises keep false.
+  allowSelfApproval: false
+  # Longest standing mandate a human may grant an agent (ADR 0016).
+  mandateMaxDays: 90
+  # Approval channels (ADR 0014): comma-separated, e.g. "log,webhook" or a plugin name.
+  approvalChannels: "log"
+  approvalWebhookUrl: ""
+  # Memory backend (ADR 0018/0021): postgres (default), inmemory (demo only), mem0, zep, or a
+  # plugin name. The chart
+  # refuses inmemory with more than one replica unless allowInMemoryMemory is true.
+  memoryBackend: postgres
+  allowInMemoryMemory: false
+  # Optional embedder for the postgres backend: `package.module:callable` (ADR 0021).
+  memoryEmbedder: ""
+  memoryNamespace: hoc
+  # Mem0 configuration as a JSON object (vector store, LLM, embedder); empty = Mem0 defaults.
+  mem0Config: ""
+  # Self-hosted Zep base URL; the API key is a secret (secrets.zepApiKey).
+  zepBaseUrl: ""
+  oidcSubjectClaim: preferred_username
+  # Identity provider (ADR 0019): keycloak, oidc, or a plugin; agent-token detection claims.
+  identityProvider: keycloak
+  oidcGroupsClaim: groups
+  oidcAgentClaim: clientId
+  oidcAgentIdClaim: clientId
+  serviceName: headofcontext
+  otelEnabled: true
+  otelEndpoint: http://otel-collector:4318
+  # Schema migrations (ADR 0020) run in a pre-install/pre-upgrade Job; replicas never run DDL.
+  dbAutoMigrate: false
+  # Connections per replica shared by every store (ADR 0022).
+  dbPoolSize: 8
+
+migrations:
+  enabled: true
+  resources:
+    requests: { cpu: 50m, memory: 128Mi }
+    limits: { cpu: 500m, memory: 256Mi }
+  # Secret holding the migrator's HOC_POSTGRES_DSN (schema owner); empty = the service secret.
+  # Pair it with a runtime role that has data rights only: scripts/db-roles.sql.
+  secretName: ""
+
+# Connector sync runner (ADR 0012): a CronJob running `hoc sync --once`.
+sync:
+  # Enable once sync.connectors points at your directory and sources; then set
+  # config.connectorsRequired: true.
+  enabled: false
+  schedule: "*/5 * * * *"
+  resources:
+    requests: { cpu: 50m, memory: 128Mi }
+    limits: { cpu: 500m, memory: 256Mi }
+  # Secret holding the *_env variables referenced by the connectors (e.g. NEXTCLOUD_PASSWORD).
+  secretsFrom: ""
+  connectors:
+    - type: keycloak_groups
+      base_url: https://keycloak.example.com
+      realm: acme
+      admin_user: hoc-sync
+      admin_password_env: KEYCLOAK_SYNC_PASSWORD
+
+# Graceful stop: in-flight decisions finish, the pool closes.
+terminationGracePeriodSeconds: 20
+
+# Rendered only when replicaCount > 1.
+podDisruptionBudget:
+  minAvailable: 1
+
+# Opt-in: who may reach the service and where it may connect (PostgreSQL, OpenFGA, the IdP).
+networkPolicy:
+  enabled: false
+  ingressFrom:
+    - namespaceSelector: {}
+  # CIDRs the service may reach (PostgreSQL, OpenFGA, the IdP, the OTel collector, webhooks)...
+  egressCidrs:
+    - 10.0.0.0/8
+  # ...and any extra egress rules verbatim, e.g. a public IdP:
+  #   - to: [{ ipBlock: { cidr: 0.0.0.0/0 } }]
+  #     ports: [{ port: 443, protocol: TCP }]
+  egress: []
+
+# Application logging (ADR 0025).
+logging:
+  level: INFO
+  format: json
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: "1"
+    memory: 512Mi
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  seccompProfile:
+    type: RuntimeDefault
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+ingress:
+  enabled: false
+  className: ""
+  host: headofcontext.example.com
+  tls: []

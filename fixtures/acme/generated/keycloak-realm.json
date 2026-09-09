@@ -1,0 +1,1066 @@
+{
+ "realm": "acme",
+ "enabled": true,
+ "sslRequired": "none",
+ "accessTokenLifespan": 3600,
+ "groups": [
+  {
+   "name": "direction",
+   "path": "/direction"
+  },
+  {
+   "name": "rh",
+   "path": "/rh"
+  },
+  {
+   "name": "finance",
+   "path": "/finance"
+  },
+  {
+   "name": "magasin-lille",
+   "path": "/magasin-lille"
+  },
+  {
+   "name": "magasin-lyon",
+   "path": "/magasin-lyon"
+  },
+  {
+   "name": "it",
+   "path": "/it"
+  },
+  {
+   "name": "juridique",
+   "path": "/juridique"
+  },
+  {
+   "name": "stagiaires",
+   "path": "/stagiaires"
+  }
+ ],
+ "users": [
+  {
+   "username": "alice.martin",
+   "enabled": true,
+   "email": "alice.martin@acme.example",
+   "emailVerified": true,
+   "firstName": "Alice",
+   "lastName": "Martin",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/direction"
+   ]
+  },
+  {
+   "username": "bruno.bernard",
+   "enabled": true,
+   "email": "bruno.bernard@acme.example",
+   "emailVerified": true,
+   "firstName": "Bruno",
+   "lastName": "Bernard",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/direction"
+   ]
+  },
+  {
+   "username": "camille.dubois",
+   "enabled": true,
+   "email": "camille.dubois@acme.example",
+   "emailVerified": true,
+   "firstName": "Camille",
+   "lastName": "Dubois",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/direction"
+   ]
+  },
+  {
+   "username": "david.thomas",
+   "enabled": true,
+   "email": "david.thomas@acme.example",
+   "emailVerified": true,
+   "firstName": "David",
+   "lastName": "Thomas",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/direction"
+   ]
+  },
+  {
+   "username": "emma.robert",
+   "enabled": true,
+   "email": "emma.robert@acme.example",
+   "emailVerified": true,
+   "firstName": "Emma",
+   "lastName": "Robert",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/direction"
+   ]
+  },
+  {
+   "username": "farid.richard",
+   "enabled": true,
+   "email": "farid.richard@acme.example",
+   "emailVerified": true,
+   "firstName": "Farid",
+   "lastName": "Richard",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "gaelle.petit",
+   "enabled": true,
+   "email": "gaelle.petit@acme.example",
+   "emailVerified": true,
+   "firstName": "Gaëlle",
+   "lastName": "Petit",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh",
+    "/stagiaires"
+   ]
+  },
+  {
+   "username": "hugo.durand",
+   "enabled": true,
+   "email": "hugo.durand@acme.example",
+   "emailVerified": true,
+   "firstName": "Hugo",
+   "lastName": "Durand",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  },
+  {
+   "username": "ines.leroy",
+   "enabled": true,
+   "email": "ines.leroy@acme.example",
+   "emailVerified": true,
+   "firstName": "Inès",
+   "lastName": "Leroy",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille"
+   ]
+  },
+  {
+   "username": "julien.moreau",
+   "enabled": true,
+   "email": "julien.moreau@acme.example",
+   "emailVerified": true,
+   "firstName": "Julien",
+   "lastName": "Moreau",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon"
+   ]
+  },
+  {
+   "username": "karim.simon",
+   "enabled": true,
+   "email": "karim.simon@acme.example",
+   "emailVerified": true,
+   "firstName": "Karim",
+   "lastName": "Simon",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it"
+   ]
+  },
+  {
+   "username": "lea.laurent",
+   "enabled": true,
+   "email": "lea.laurent@acme.example",
+   "emailVerified": true,
+   "firstName": "Léa",
+   "lastName": "Laurent",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "mathis.lefebvre",
+   "enabled": true,
+   "email": "mathis.lefebvre@acme.example",
+   "emailVerified": true,
+   "firstName": "Mathis",
+   "lastName": "Lefebvre",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh",
+    "/stagiaires"
+   ]
+  },
+  {
+   "username": "nadia.michel",
+   "enabled": true,
+   "email": "nadia.michel@acme.example",
+   "emailVerified": true,
+   "firstName": "Nadia",
+   "lastName": "Michel",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  },
+  {
+   "username": "oscar.garcia",
+   "enabled": true,
+   "email": "oscar.garcia@acme.example",
+   "emailVerified": true,
+   "firstName": "Oscar",
+   "lastName": "Garcia",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille"
+   ]
+  },
+  {
+   "username": "pauline.david",
+   "enabled": true,
+   "email": "pauline.david@acme.example",
+   "emailVerified": true,
+   "firstName": "Pauline",
+   "lastName": "David",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon"
+   ]
+  },
+  {
+   "username": "quentin.bertrand",
+   "enabled": true,
+   "email": "quentin.bertrand@acme.example",
+   "emailVerified": true,
+   "firstName": "Quentin",
+   "lastName": "Bertrand",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it"
+   ]
+  },
+  {
+   "username": "rania.roux",
+   "enabled": true,
+   "email": "rania.roux@acme.example",
+   "emailVerified": true,
+   "firstName": "Rania",
+   "lastName": "Roux",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "samir.vincent",
+   "enabled": true,
+   "email": "samir.vincent@acme.example",
+   "emailVerified": true,
+   "firstName": "Samir",
+   "lastName": "Vincent",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh"
+   ]
+  },
+  {
+   "username": "theo.fournier",
+   "enabled": true,
+   "email": "theo.fournier@acme.example",
+   "emailVerified": true,
+   "firstName": "Théo",
+   "lastName": "Fournier",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance",
+    "/stagiaires"
+   ]
+  },
+  {
+   "username": "ursule.morel",
+   "enabled": true,
+   "email": "ursule.morel@acme.example",
+   "emailVerified": true,
+   "firstName": "Ursule",
+   "lastName": "Morel",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille",
+    "/stagiaires"
+   ]
+  },
+  {
+   "username": "victor.girard",
+   "enabled": true,
+   "email": "victor.girard@acme.example",
+   "emailVerified": true,
+   "firstName": "Victor",
+   "lastName": "Girard",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon"
+   ]
+  },
+  {
+   "username": "wassim.andre",
+   "enabled": true,
+   "email": "wassim.andre@acme.example",
+   "emailVerified": true,
+   "firstName": "Wassim",
+   "lastName": "André",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it",
+    "/stagiaires"
+   ]
+  },
+  {
+   "username": "xavier.lefevre",
+   "enabled": true,
+   "email": "xavier.lefevre@acme.example",
+   "emailVerified": true,
+   "firstName": "Xavier",
+   "lastName": "Lefèvre",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "yasmine.mercier",
+   "enabled": true,
+   "email": "yasmine.mercier@acme.example",
+   "emailVerified": true,
+   "firstName": "Yasmine",
+   "lastName": "Mercier",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh"
+   ]
+  },
+  {
+   "username": "zoe.dupont",
+   "enabled": true,
+   "email": "zoe.dupont@acme.example",
+   "emailVerified": true,
+   "firstName": "Zoé",
+   "lastName": "Dupont",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  },
+  {
+   "username": "adrien.lambert",
+   "enabled": true,
+   "email": "adrien.lambert@acme.example",
+   "emailVerified": true,
+   "firstName": "Adrien",
+   "lastName": "Lambert",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille"
+   ]
+  },
+  {
+   "username": "benedicte.bonnet",
+   "enabled": true,
+   "email": "benedicte.bonnet@acme.example",
+   "emailVerified": true,
+   "firstName": "Bénédicte",
+   "lastName": "Bonnet",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon"
+   ]
+  },
+  {
+   "username": "clement.francois",
+   "enabled": true,
+   "email": "clement.francois@acme.example",
+   "emailVerified": true,
+   "firstName": "Clément",
+   "lastName": "François",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it"
+   ]
+  },
+  {
+   "username": "dorian.martinez",
+   "enabled": true,
+   "email": "dorian.martinez@acme.example",
+   "emailVerified": true,
+   "firstName": "Dorian",
+   "lastName": "Martinez",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "elise.legrand",
+   "enabled": true,
+   "email": "elise.legrand@acme.example",
+   "emailVerified": true,
+   "firstName": "Élise",
+   "lastName": "Legrand",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh"
+   ]
+  },
+  {
+   "username": "fabien.garnier",
+   "enabled": true,
+   "email": "fabien.garnier@acme.example",
+   "emailVerified": true,
+   "firstName": "Fabien",
+   "lastName": "Garnier",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  },
+  {
+   "username": "garance.faure",
+   "enabled": true,
+   "email": "garance.faure@acme.example",
+   "emailVerified": true,
+   "firstName": "Garance",
+   "lastName": "Faure",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille"
+   ]
+  },
+  {
+   "username": "helene.rousseau",
+   "enabled": true,
+   "email": "helene.rousseau@acme.example",
+   "emailVerified": true,
+   "firstName": "Hélène",
+   "lastName": "Rousseau",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon"
+   ]
+  },
+  {
+   "username": "ismael.blanc",
+   "enabled": true,
+   "email": "ismael.blanc@acme.example",
+   "emailVerified": true,
+   "firstName": "Ismaël",
+   "lastName": "Blanc",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it"
+   ]
+  },
+  {
+   "username": "jade.guerin",
+   "enabled": true,
+   "email": "jade.guerin@acme.example",
+   "emailVerified": true,
+   "firstName": "Jade",
+   "lastName": "Guérin",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "kevin.muller",
+   "enabled": true,
+   "email": "kevin.muller@acme.example",
+   "emailVerified": true,
+   "firstName": "Kevin",
+   "lastName": "Muller",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh"
+   ]
+  },
+  {
+   "username": "louise.henry",
+   "enabled": true,
+   "email": "louise.henry@acme.example",
+   "emailVerified": true,
+   "firstName": "Louise",
+   "lastName": "Henry",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  },
+  {
+   "username": "marc.roussel",
+   "enabled": true,
+   "email": "marc.roussel@acme.example",
+   "emailVerified": true,
+   "firstName": "Marc",
+   "lastName": "Roussel",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille"
+   ]
+  },
+  {
+   "username": "noemie.nicolas",
+   "enabled": true,
+   "email": "noemie.nicolas@acme.example",
+   "emailVerified": true,
+   "firstName": "Noémie",
+   "lastName": "Nicolas",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon"
+   ]
+  },
+  {
+   "username": "olivier.perrin",
+   "enabled": true,
+   "email": "olivier.perrin@acme.example",
+   "emailVerified": true,
+   "firstName": "Olivier",
+   "lastName": "Perrin",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it"
+   ]
+  },
+  {
+   "username": "perrine.morin",
+   "enabled": true,
+   "email": "perrine.morin@acme.example",
+   "emailVerified": true,
+   "firstName": "Perrine",
+   "lastName": "Morin",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "rachid.mathieu",
+   "enabled": true,
+   "email": "rachid.mathieu@acme.example",
+   "emailVerified": true,
+   "firstName": "Rachid",
+   "lastName": "Mathieu",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh"
+   ]
+  },
+  {
+   "username": "sophie.clement",
+   "enabled": true,
+   "email": "sophie.clement@acme.example",
+   "emailVerified": true,
+   "firstName": "Sophie",
+   "lastName": "Clément",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  },
+  {
+   "username": "tristan.gauthier",
+   "enabled": true,
+   "email": "tristan.gauthier@acme.example",
+   "emailVerified": true,
+   "firstName": "Tristan",
+   "lastName": "Gauthier",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lille"
+   ]
+  },
+  {
+   "username": "valerie.dumont",
+   "enabled": true,
+   "email": "valerie.dumont@acme.example",
+   "emailVerified": true,
+   "firstName": "Valérie",
+   "lastName": "Dumont",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/magasin-lyon",
+    "/stagiaires"
+   ]
+  },
+  {
+   "username": "william.lopez",
+   "enabled": true,
+   "email": "william.lopez@acme.example",
+   "emailVerified": true,
+   "firstName": "William",
+   "lastName": "Lopez",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/it"
+   ]
+  },
+  {
+   "username": "yann.fontaine",
+   "enabled": true,
+   "email": "yann.fontaine@acme.example",
+   "emailVerified": true,
+   "firstName": "Yann",
+   "lastName": "Fontaine",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/juridique"
+   ]
+  },
+  {
+   "username": "zacharie.chevalier",
+   "enabled": true,
+   "email": "zacharie.chevalier@acme.example",
+   "emailVerified": true,
+   "firstName": "Zacharie",
+   "lastName": "Chevalier",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/rh"
+   ]
+  },
+  {
+   "username": "anais.robin",
+   "enabled": true,
+   "email": "anais.robin@acme.example",
+   "emailVerified": true,
+   "firstName": "Anaïs",
+   "lastName": "Robin",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "password",
+     "temporary": false
+    }
+   ],
+   "groups": [
+    "/finance"
+   ]
+  }
+ ],
+ "clients": [
+  {
+   "clientId": "headofcontext",
+   "name": "HeadOfContext",
+   "enabled": true,
+   "publicClient": false,
+   "secret": "hoc-dev-secret",
+   "directAccessGrantsEnabled": true,
+   "standardFlowEnabled": true,
+   "serviceAccountsEnabled": true,
+   "attributes": {
+    "standard.token.exchange.enabled": "true"
+   },
+   "protocolMappers": [
+    {
+     "name": "groups",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-group-membership-mapper",
+     "config": {
+      "claim.name": "groups",
+      "full.path": "true",
+      "id.token.claim": "true",
+      "access.token.claim": "true",
+      "userinfo.token.claim": "true"
+     }
+    },
+    {
+     "name": "audience",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-audience-mapper",
+     "config": {
+      "included.client.audience": "headofcontext",
+      "access.token.claim": "true"
+     }
+    },
+    {
+     "name": "nextcloud-audience",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-audience-mapper",
+     "config": {
+      "included.client.audience": "nextcloud",
+      "access.token.claim": "true"
+     }
+    }
+   ]
+  },
+  {
+   "clientId": "nextcloud",
+   "name": "Nextcloud",
+   "enabled": true,
+   "publicClient": false,
+   "secret": "nextcloud-dev-secret",
+   "standardFlowEnabled": true,
+   "redirectUris": [
+    "http://localhost:8090/*"
+   ]
+  },
+  {
+   "clientId": "assistant",
+   "name": "ACME agent assistant",
+   "enabled": true,
+   "publicClient": false,
+   "secret": "assistant-dev-secret",
+   "serviceAccountsEnabled": true,
+   "standardFlowEnabled": false,
+   "protocolMappers": [
+    {
+     "name": "audience",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-audience-mapper",
+     "config": {
+      "included.client.audience": "headofcontext",
+      "access.token.claim": "true"
+     }
+    }
+   ]
+  },
+  {
+   "clientId": "mailer",
+   "name": "ACME agent mailer",
+   "enabled": true,
+   "publicClient": false,
+   "secret": "mailer-dev-secret",
+   "serviceAccountsEnabled": true,
+   "standardFlowEnabled": false,
+   "protocolMappers": [
+    {
+     "name": "audience",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-audience-mapper",
+     "config": {
+      "included.client.audience": "headofcontext",
+      "access.token.claim": "true"
+     }
+    }
+   ]
+  },
+  {
+   "clientId": "sub",
+   "name": "ACME agent sub",
+   "enabled": true,
+   "publicClient": false,
+   "secret": "sub-dev-secret",
+   "serviceAccountsEnabled": true,
+   "standardFlowEnabled": false,
+   "protocolMappers": [
+    {
+     "name": "audience",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-audience-mapper",
+     "config": {
+      "included.client.audience": "headofcontext",
+      "access.token.claim": "true"
+     }
+    }
+   ]
+  }
+ ]
+}

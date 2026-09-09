@@ -1,0 +1,352 @@
+[
+ {
+  "user": "group:direction#member",
+  "relation": "member",
+  "object": "group:rh"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "member",
+  "object": "group:finance"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "member",
+  "object": "group:juridique"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:magasin-lille#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:magasin-lyon#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:stagiaires#member",
+  "relation": "can_invoke",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "can_invoke",
+  "object": "tool:hr.export"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "can_invoke",
+  "object": "tool:finance.report"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "can_invoke",
+  "object": "tool:it.reset-password"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "can_invoke",
+  "object": "tool:legal.sign"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:mail.send"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:hr.export"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:finance.report"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:it.reset-password"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:legal.sign"
+ },
+ {
+  "user": "user:alice.martin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:bruno.bernard",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:camille.dubois",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:david.thomas",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:emma.robert",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:farid.richard",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:gaelle.petit",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:hugo.durand",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:ines.leroy",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:julien.moreau",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:karim.simon",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:lea.laurent",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:mathis.lefebvre",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:nadia.michel",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:oscar.garcia",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:pauline.david",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:quentin.bertrand",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:rania.roux",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:samir.vincent",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:theo.fournier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:ursule.morel",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:victor.girard",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:wassim.andre",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:xavier.lefevre",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:yasmine.mercier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:zoe.dupont",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:adrien.lambert",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:benedicte.bonnet",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:clement.francois",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:dorian.martinez",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:elise.legrand",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:fabien.garnier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:garance.faure",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:helene.rousseau",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:ismael.blanc",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:jade.guerin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:kevin.muller",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:louise.henry",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:marc.roussel",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:noemie.nicolas",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:olivier.perrin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:perrine.morin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:rachid.mathieu",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:sophie.clement",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:tristan.gauthier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:valerie.dumont",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:william.lopez",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:yann.fontaine",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:zacharie.chevalier",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ },
+ {
+  "user": "user:anais.robin",
+  "relation": "can_act_on_behalf_of",
+  "object": "agent:assistant"
+ }
+]

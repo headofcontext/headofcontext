@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "headofcontext.fullname" . }}
+  labels: {{- include "headofcontext.labels" . | nindent 4 }}
+data:
+  HOC_OPENFGA_URL: {{ .Values.openfga.url | quote }}
+  HOC_OPENFGA_STORE_ID: {{ required "openfga.storeId is required" .Values.openfga.storeId | quote }}
+  HOC_OPENFGA_MODEL_ID: {{ .Values.openfga.modelId | quote }}
+  HOC_OIDC_ISSUER: {{ .Values.oidc.issuer | quote }}
+  HOC_OIDC_AUDIENCE: {{ .Values.oidc.audience | quote }}
+  HOC_OIDC_CLIENT_ID: {{ .Values.oidc.clientId | quote }}
+  HOC_OIDC_INTERNAL_URL: {{ .Values.oidc.internalUrl | quote }}
+  HOC_APPROVAL_TOOLS: {{ .Values.config.approvalTools | quote }}
+  HOC_CONNECTORS_REQUIRED: {{ .Values.config.connectorsRequired | quote }}
+  HOC_CONNECTOR_MAX_STALENESS_MINUTES: {{ .Values.config.connectorMaxStalenessMinutes | quote }}
+  HOC_TOKEN_TTL_MINUTES: {{ .Values.config.tokenTtlMinutes | quote }}
+  HOC_RATE_LIMIT_PER_MINUTE: {{ .Values.config.rateLimitPerMinute | quote }}
+  HOC_ROOT_KEY_ID: {{ .Values.config.rootKeyId | quote }}
+  HOC_ROOT_PUBLIC_KEYS: {{ .Values.config.rootPublicKeys | quote }}
+  HOC_APPROVAL_TTL_MINUTES: {{ .Values.config.approvalTtlMinutes | quote }}
+  HOC_MANDATE_MAX_DAYS: {{ .Values.config.mandateMaxDays | quote }}
+  HOC_ALLOW_SELF_APPROVAL: {{ .Values.config.allowSelfApproval | quote }}
+  HOC_APPROVAL_CHANNELS: {{ .Values.config.approvalChannels | quote }}
+  HOC_APPROVAL_WEBHOOK_URL: {{ .Values.config.approvalWebhookUrl | quote }}
+  HOC_MEMORY_BACKEND: {{ .Values.config.memoryBackend | quote }}
+  HOC_MEMORY_NAMESPACE: {{ .Values.config.memoryNamespace | quote }}
+  HOC_MEM0_CONFIG: {{ .Values.config.mem0Config | quote }}
+  HOC_MEMORY_EMBEDDER: {{ .Values.config.memoryEmbedder | quote }}
+  HOC_ZEP_BASE_URL: {{ .Values.config.zepBaseUrl | quote }}
+  HOC_OIDC_SUBJECT_CLAIM: {{ .Values.config.oidcSubjectClaim | quote }}
+  HOC_IDENTITY_PROVIDER: {{ .Values.config.identityProvider | quote }}
+  HOC_OIDC_GROUPS_CLAIM: {{ .Values.config.oidcGroupsClaim | quote }}
+  HOC_OIDC_AGENT_CLAIM: {{ .Values.config.oidcAgentClaim | quote }}
+  HOC_OIDC_AGENT_ID_CLAIM: {{ .Values.config.oidcAgentIdClaim | quote }}
+  HOC_SERVICE_NAME: {{ .Values.config.serviceName | quote }}
+  HOC_DB_AUTO_MIGRATE: {{ .Values.config.dbAutoMigrate | quote }}
+  HOC_DB_POOL_SIZE: {{ .Values.config.dbPoolSize | quote }}
+  HOC_LOG_LEVEL: {{ .Values.logging.level | quote }}
+  HOC_LOG_FORMAT: {{ .Values.logging.format | quote }}
+  HOC_OTEL_ENABLED: {{ .Values.config.otelEnabled | quote }}
+  OTEL_EXPORTER_OTLP_ENDPOINT: {{ .Values.config.otelEndpoint | quote }}

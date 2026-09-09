@@ -1,0 +1,54 @@
+# HeadOfContext authorization model v1 — see docs/adr/0006-openfga-authorization-model.md
+#
+# The subject of every check is a *user*. Agents never appear as the user of a document check;
+# their right to ask is carried by the biscuit scope, not by OpenFGA.
+
+model
+  schema 1.1
+
+type user
+
+# Groups nest: a member of a child group is a member of the parent group.
+type group
+  relations
+    define member: [user, group#member]
+
+# An agent is bound to the users it may act for. This is the structural counterpart of the
+# `subject` in the PrincipalChain; attenuation between agents is enforced by biscuit, OpenFGA only
+# records that a delegation edge is allowed to exist.
+type agent
+  relations
+    define can_act_on_behalf_of: [user]
+    define delegate: [agent]
+
+# A source is a connector-level container (a Nextcloud share, a PipesHub connector, a folder).
+# Editors are viewers.
+type source
+  relations
+    define editor: [user, group#member]
+    define viewer: [user, group#member] or editor
+
+# A document inherits from its parent source. A direct ACL on the document adds to inheritance,
+# it never removes it: the connector must model exclusions by not attaching the document.
+type document
+  relations
+    define parent: [source]
+    define editor: [user, group#member] or editor from parent
+    define viewer: [user, group#member] or editor or viewer from parent
+
+# Tools are invocable by users or groups. The agent's ability to *ask* is a biscuit "act" capability.
+# `approver` names who may resolve a REQUIRE_APPROVAL request for the tool (ADR 0017); the
+# subject of the request never needs it (self-approval is a deployment setting).
+type tool
+  relations
+    define can_invoke: [user, group#member]
+    define approver: [user, group#member]
+
+# A memory derives from one or more documents. `viewer` here is "viewer of at least one source";
+# the memory layer enforces the ALL-sources rule with a BatchCheck over every derived_from document
+# (AGENTS.md, provenance memory). A memory with no derived_from tuple therefore has no viewer at all.
+type memory
+  relations
+    define derived_from: [document]
+    define writer: [agent]
+    define viewer: viewer from derived_from

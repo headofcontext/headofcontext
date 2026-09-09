@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+dist/
+build/
+*.egg-info/
+.env
+.env.local
+.hoc-local.json
+CLAUDE.local.md
+.coverage
+coverage.xml

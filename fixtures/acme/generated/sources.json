@@ -1,0 +1,114 @@
+[
+ {
+  "id": "source:nextcloud-direction",
+  "name": "Nextcloud — direction",
+  "path": "/ACME/direction",
+  "viewers": [
+   "group:direction"
+  ],
+  "editors": [
+   "user:bruno.bernard",
+   "user:alice.martin"
+  ]
+ },
+ {
+  "id": "source:nextcloud-rh",
+  "name": "Nextcloud — rh",
+  "path": "/ACME/rh",
+  "viewers": [
+   "group:rh"
+  ],
+  "editors": [
+   "user:zacharie.chevalier",
+   "user:rachid.mathieu"
+  ]
+ },
+ {
+  "id": "source:nextcloud-finance",
+  "name": "Nextcloud — finance",
+  "path": "/ACME/finance",
+  "viewers": [
+   "group:finance"
+  ],
+  "editors": [
+   "user:hugo.durand",
+   "user:louise.henry"
+  ]
+ },
+ {
+  "id": "source:nextcloud-magasin-lille",
+  "name": "Nextcloud — magasin-lille",
+  "path": "/ACME/magasin-lille",
+  "viewers": [
+   "group:magasin-lille"
+  ],
+  "editors": [
+   "user:garance.faure",
+   "user:ines.leroy"
+  ]
+ },
+ {
+  "id": "source:nextcloud-magasin-lyon",
+  "name": "Nextcloud — magasin-lyon",
+  "path": "/ACME/magasin-lyon",
+  "viewers": [
+   "group:magasin-lyon"
+  ],
+  "editors": [
+   "user:julien.moreau",
+   "user:noemie.nicolas"
+  ]
+ },
+ {
+  "id": "source:nextcloud-it",
+  "name": "Nextcloud — it",
+  "path": "/ACME/it",
+  "viewers": [
+   "group:it"
+  ],
+  "editors": [
+   "user:quentin.bertrand",
+   "user:william.lopez"
+  ]
+ },
+ {
+  "id": "source:nextcloud-juridique",
+  "name": "Nextcloud — juridique",
+  "path": "/ACME/juridique",
+  "viewers": [
+   "group:juridique"
+  ],
+  "editors": [
+   "user:farid.richard",
+   "user:dorian.martinez"
+  ]
+ },
+ {
+  "id": "source:nextcloud-stagiaires",
+  "name": "Nextcloud — stagiaires",
+  "path": "/ACME/stagiaires",
+  "viewers": [
+   "group:stagiaires"
+  ],
+  "editors": []
+ },
+ {
+  "id": "source:nextcloud-public",
+  "name": "Nextcloud — public",
+  "path": "/ACME/public",
+  "viewers": [
+   "group:direction",
+   "group:rh",
+   "group:finance",
+   "group:magasin-lille",
+   "group:magasin-lyon",
+   "group:it",
+   "group:juridique",
+   "group:stagiaires"
+  ],
+  "editors": [
+   "user:alice.martin",
+   "user:bruno.bernard"
+  ]
+ }
+]

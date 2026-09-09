@@ -1,0 +1,57 @@
+{{- if .Values.sync.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "headofcontext.fullname" . }}-sync
+  labels: {{- include "headofcontext.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.sync.schedule | quote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels: {{- include "headofcontext.labels" . | nindent 12 }}
+            app.kubernetes.io/component: sync
+        spec:
+          restartPolicy: OnFailure
+          serviceAccountName: {{ include "headofcontext.fullname" . }}
+          automountServiceAccountToken: false
+          securityContext: {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          containers:
+            - name: sync
+              image: {{ include "headofcontext.image" . | quote }}
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              securityContext: {{- toYaml .Values.securityContext | nindent 16 }}
+              command: ["hoc", "--env-file", "/dev/null", "sync", "--once", "--config", "/etc/hoc/connectors.json"]
+              envFrom:
+                - configMapRef:
+                    name: {{ include "headofcontext.fullname" . }}
+                - secretRef:
+                    name: {{ include "headofcontext.secretName" . }}
+                {{- with .Values.sync.secretsFrom }}
+                - secretRef:
+                    name: {{ . }}
+                {{- end }}
+              resources: {{- toYaml .Values.sync.resources | nindent 16 }}
+              volumeMounts:
+                - name: connectors
+                  mountPath: /etc/hoc
+                  readOnly: true
+                - name: tmp
+                  mountPath: /tmp
+          volumes:
+            - name: connectors
+              configMap:
+                name: {{ include "headofcontext.fullname" . }}-connectors
+            - name: tmp
+              emptyDir: {}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "headofcontext.fullname" . }}-connectors
+  labels: {{- include "headofcontext.labels" . | nindent 4 }}
+data:
+  connectors.json: {{ .Values.sync.connectors | toJson | quote }}
+{{- end }}
