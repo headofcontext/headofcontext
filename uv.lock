@@ -1088,15 +1088,6 @@ dependencies = [
 crewai = [
     { name = "crewai" },
 ]
-dev = [
-    { name = "hypothesis" },
-    { name = "mypy" },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pyyaml" },
-    { name = "ruff" },
-    { name = "types-pyyaml" },
-]
 langgraph = [
     { name = "langchain-core" },
     { name = "langgraph" },
@@ -1131,13 +1122,11 @@ requires-dist = [
     { name = "crewai", marker = "extra == 'crewai'", specifier = ">=1.0" },
     { name = "fastapi", specifier = ">=0.115" },
     { name = "httpx", specifier = ">=0.27" },
-    { name = "hypothesis", marker = "extra == 'dev'", specifier = ">=6.115" },
     { name = "joserfc", specifier = ">=1.0" },
     { name = "langchain-core", marker = "extra == 'langgraph'", specifier = ">=1.0" },
     { name = "langgraph", marker = "extra == 'langgraph'", specifier = ">=1.0" },
     { name = "mcp", marker = "extra == 'mcp'", specifier = ">=2" },
     { name = "mem0ai", marker = "extra == 'mem0'", specifier = ">=0.1" },
-    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13" },
     { name = "openfga-sdk", specifier = ">=0.9" },
     { name = "opentelemetry-api", specifier = ">=1.28" },
     { name = "opentelemetry-exporter-otlp-proto-http", specifier = ">=1.28" },
@@ -1147,15 +1136,10 @@ requires-dist = [
     { name = "psycopg-pool", specifier = ">=3.2" },
     { name = "pydantic", specifier = ">=2.9" },
     { name = "pydantic-ai-slim", marker = "extra == 'pydanticai'", specifier = ">=2" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3" },
-    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.24" },
-    { name = "pyyaml", marker = "extra == 'dev'", specifier = ">=6.0" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7" },
-    { name = "types-pyyaml", marker = "extra == 'dev'", specifier = ">=6.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30" },
     { name = "zep-cloud", marker = "extra == 'zep'", specifier = ">=2.0" },
 ]
-provides-extras = ["mem0", "zep", "langgraph", "crewai", "dev", "mcp", "pydanticai"]
+provides-extras = ["mem0", "zep", "langgraph", "crewai", "mcp", "pydanticai"]
 
 [package.metadata.requires-dev]
 dev = [

@@ -58,7 +58,6 @@ the Helm chart is in [`deploy/helm/headofcontext`](deploy/helm/headofcontext/REA
 docker compose up -d                                        # OpenFGA :8080, Keycloak :8180, PostgreSQL :5433
 uv run hoc model load --url http://localhost:8080           # store + model; ids and dev values written to .env
 uv run hoc fixtures load                                    # the fictional ACME company (50 users, 500 documents)
-export HOC_OPENFGA_STORE_ID=$(grep HOC_OPENFGA_STORE_ID .env | cut -d= -f2)
 docker compose --profile api up -d --build                  # API on :8000 (/docs), sync runner every 5 min
 curl -s localhost:8000/v1/ready
 uv run hoc journal tail -n 5                                # every decision, journaled
@@ -151,8 +150,8 @@ resources and prompts are not forwarded. See ADR 0013.
 
 - **Telemetry**: with `HOC_OTEL_ENABLED=true` the service exports audit spans and the
   `hoc.decisions`, `hoc.decision.duration`, `hoc.engine.duration` and
-  `hoc.approvals.notify_failed` metrics over OTLP/HTTP to `OTEL_EXPORTER_OTLP_ENDPOINT`;
-  attributes are outcomes and reasons only.
+  `hoc.approvals.notify_failed` metrics over OTLP/HTTP to `OTEL_EXPORTER_OTLP_ENDPOINT`
+  (`HOC_OTEL_ENDPOINT` is the fallback); attributes are outcomes and reasons only.
 - **Root key**: `HOC_ROOT_KEY_HEX` is required (`hoc keys generate`); the service refuses to
   start without it unless `HOC_ALLOW_EPHEMERAL_ROOT_KEY=true`, which only the dev compose sets.
 - **Solo operators**: `HOC_ALLOW_SELF_APPROVAL=true` lets the human approve their own agents'

@@ -5,10 +5,10 @@ been an allow is a bug. Both matter; only the first is a security issue.
 
 ## Reporting a vulnerability
 
-Do not open a public issue. Send the report to the address published on the project's
-repository page (security contact) with: the affected version or commit, the invariant or threat
-you believe is broken (`docs/threat-model.md`, `AGENTS.md` I1–I5), a reproduction, and the impact
-you observed. You will get an acknowledgement within three working days and a fix or a
+Do not open a public issue. Use GitHub's private vulnerability reporting: **Security → Report a
+vulnerability** on <https://github.com/headofcontext/headofcontext/security/advisories/new>.
+Include the affected version or commit, the invariant or threat you believe is broken
+(`docs/threat-model.md`, `AGENTS.md` I1–I5), a reproduction, and the impact you observed. You will get an acknowledgement within three working days and a fix or a
 mitigation plan within thirty days for confirmed issues. Coordinated disclosure is the default;
 we will credit you unless you prefer otherwise.
 

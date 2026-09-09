@@ -1,0 +1,28 @@
+name: Bug report
+description: A wrong decision, a crash, a documentation gap. Not for vulnerabilities.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        A way for an agent to read, do or remember more than its user may is a vulnerability:
+        use **Report a vulnerability** instead of this form.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: Commands, the principal chain and the resource involved. No tokens, no document content.
+    validations:
+      required: true

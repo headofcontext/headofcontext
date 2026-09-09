@@ -11,4 +11,4 @@ helm install hoc deploy/helm/headofcontext \
 
 Then point `sync.connectors` at your directory and sources, set `sync.enabled: true` and
 `config.connectorsRequired: true`. Values are documented inline in `values.yaml`; the deployment
-guide in the documentation site covers probes, migrations, roles, retention and network policy.
+guide (published with the documentation) covers probes, migrations, roles, retention and network policy.
