@@ -34,17 +34,24 @@ class ToolGuard:
         *,
         on_deny: OnDeny = "message",
         tool_map: Mapping[str, str] | None = None,
+        default_resource: Callable[[str], str] | None = None,
     ) -> None:
         self._session = session
         self._on_deny = on_deny
         self._tool_map = dict(tool_map or {})
+        self._default_resource = default_resource
 
     @property
     def session(self) -> AgentSession:
         return self._session
 
     def resource_for(self, name: str) -> str:
-        return self._tool_map.get(name, name)
+        """The tool resource a framework name is gated as: the map, else ``default_resource``
+        (the name itself unless the integration says otherwise)."""
+        mapped = self._tool_map.get(name)
+        if mapped is not None:
+            return mapped
+        return self._default_resource(name) if self._default_resource else name
 
     async def authorize(self, name: str, args: Mapping[str, Any]) -> GateResult:
         """Raises ActionDenied / ApprovalPending unless the call is allowed."""

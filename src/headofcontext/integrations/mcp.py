@@ -3,10 +3,11 @@
 Two pieces, both built on :class:`AgentSession` so the decision path is the one every other
 integration uses:
 
-* :class:`GuardedMcpProxy` — an MCP server that re-exposes the tools of an upstream MCP server
-  and authorizes every call before forwarding it. Denials and approval requests are returned as
-  MCP error results; the upstream never sees them. Only tools are exposed: resources and prompts
-  are not forwarded, because the proxy cannot map an arbitrary URI to a document it could check.
+* :class:`GuardedMcpProxy` — an MCP server that re-exposes the tools of one or several upstream
+  MCP servers, lists only the ones the subject may invoke (ADR 0030) and authorizes every call
+  before forwarding it. Denials and approval requests are returned as MCP error results; the
+  upstream never sees them. Only tools are exposed: resources and prompts are not forwarded,
+  because the proxy cannot map an arbitrary URI to a document it could check.
 * :func:`build_hoc_server` — HeadOfContext itself as an MCP server (filter, gate, redeem, recall,
   remember, whoami) for agents that speak MCP and nothing else.
 
@@ -17,6 +18,7 @@ from __future__ import annotations
 
 import functools
 import logging
+import re
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass
 from typing import Any, Literal
@@ -29,7 +31,7 @@ from mcp.server.stdio import stdio_server
 
 from headofcontext.audit import AuditSink
 from headofcontext.core import AuthzEngine, Outcome
-from headofcontext.core.errors import ActionDenied, HocError
+from headofcontext.core.errors import ActionDenied, ConfigurationError, HocError
 from headofcontext.integrations.catalog import visible_tools
 from headofcontext.integrations.guard import ApprovalPending, ToolGuard, refusal_message
 from headofcontext.integrations.session import AgentSession
@@ -40,6 +42,10 @@ from headofcontext.read import filter_items
 log = logging.getLogger(__name__)
 
 REDEEM_TOOL = "hoc_redeem"
+UPSTREAM_SEPARATOR = "__"
+# No ``__`` in a server name, so ``<server>__<tool>`` splits on the first separator whatever
+# the upstream tool is called: ``b__a__x`` is tool ``a__x`` of server ``b``, never server ``a``.
+_UPSTREAM_NAME = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
 _REDEEM_DESCRIPTION = (
     "Run a tool call that HeadOfContext put on hold for human approval. Pass the request id "
     "from the approval message, the tool name and exactly the same arguments as the original "
@@ -65,18 +71,38 @@ def _error(text: str) -> types.CallToolResult:
 
 
 class GuardedMcpProxy:
-    """An MCP server whose tools are the upstream's, each call gated for the session's chain."""
+    """An MCP server whose tools are the upstreams', each call gated for the session's chain.
+
+    ``upstream`` is one ``ClientSession`` (tool names verbatim) or a mapping ``name ->
+    ClientSession``: tools are then exposed as ``<name>__<tool>`` and gated as
+    ``tool:<name>/<tool>`` unless ``tool_map`` (keyed by exposed name) says otherwise.
+    """
 
     def __init__(
         self,
         session: AgentSession,
-        upstream: ClientSession,
+        upstream: ClientSession | Mapping[str, ClientSession],
         *,
         tool_map: Mapping[str, str] | None = None,
         name: str = "headofcontext-proxy",
     ) -> None:
-        self._guard = ToolGuard(session, on_deny="raise", tool_map=tool_map)
-        self._upstream = upstream
+        if isinstance(upstream, Mapping):
+            for server in upstream:
+                if not _UPSTREAM_NAME.match(server) or UPSTREAM_SEPARATOR in server:
+                    raise ConfigurationError(
+                        f"invalid upstream name {server!r}: [a-z0-9][a-z0-9_-]*, no '__'"
+                    )
+            self._upstreams: dict[str | None, ClientSession] = {
+                server: client for server, client in upstream.items()
+            }
+        else:
+            self._upstreams = {None: upstream}
+        self._guard = ToolGuard(
+            session,
+            on_deny="raise",
+            tool_map=tool_map,
+            default_resource=_default_resource if isinstance(upstream, Mapping) else None,
+        )
         self.server: Server[Any] = Server(
             name, on_list_tools=self._list_tools, on_call_tool=self._call_tool
         )
@@ -91,11 +117,16 @@ class GuardedMcpProxy:
             await self.run(read_stream, write_stream)
 
     async def _list_tools(
-        self, _ctx: Any, params: types.PaginatedRequestParams | None
+        self, _ctx: Any, _params: types.PaginatedRequestParams | None
     ) -> types.ListToolsResult:
-        upstream = await self._upstream.list_tools(params=params)
-        # The redeem tool is ours; an upstream tool with the same name is hidden, never reachable.
-        candidates = [tool for tool in upstream.tools if tool.name != REDEEM_TOOL]
+        candidates: list[types.Tool] = []
+        for server, client in self._upstreams.items():
+            for tool in await _all_tools(client):
+                exposed = tool if server is None else _prefixed(server, tool)
+                # The redeem tool is ours; an upstream tool with the same name is hidden, never
+                # reachable.
+                if exposed.name != REDEEM_TOOL:
+                    candidates.append(exposed)
         # Only what the subject may invoke reaches the model (ADR 0030). The gate still runs on
         # every call: a client may name a tool it was never shown.
         catalog = await visible_tools(
@@ -111,7 +142,7 @@ class GuardedMcpProxy:
                 name=REDEEM_TOOL, description=_REDEEM_DESCRIPTION, input_schema=_REDEEM_SCHEMA
             )
         )
-        return types.ListToolsResult(tools=tools, next_cursor=upstream.next_cursor)
+        return types.ListToolsResult(tools=tools)
 
     async def _call_tool(
         self, _ctx: Any, params: types.CallToolRequestParams
@@ -146,9 +177,43 @@ class GuardedMcpProxy:
         return await self._forward(tool, tool_args)
 
     async def _forward(self, name: str, args: dict[str, Any]) -> types.CallToolResult:
+        routed = self._route(name)
+        if routed is None:
+            return _error(f"HeadOfContext: unknown tool '{name}'.")
+        client, tool = routed
         # Input-required flows are never enabled: the upstream cannot re-enter with arguments
         # other than the ones that were authorized.
-        return await self._upstream.call_tool(name, args)
+        return await client.call_tool(tool, args)
+
+    def _route(self, name: str) -> tuple[ClientSession, str] | None:
+        if None in self._upstreams:
+            return self._upstreams[None], name
+        server, sep, tool = name.partition(UPSTREAM_SEPARATOR)
+        if not sep or not tool or server not in self._upstreams:
+            return None
+        return self._upstreams[server], tool
+
+
+def _default_resource(exposed: str) -> str:
+    server, _, tool = exposed.partition(UPSTREAM_SEPARATOR)
+    return f"{server}/{tool}"
+
+
+def _prefixed(server: str, tool: types.Tool) -> types.Tool:
+    return tool.model_copy(update={"name": f"{server}{UPSTREAM_SEPARATOR}{tool.name}"})
+
+
+async def _all_tools(client: ClientSession) -> list[types.Tool]:
+    """Every page of the upstream catalog; the proxy answers with one page."""
+    tools: list[types.Tool] = []
+    cursor: str | None = None
+    while True:
+        params = types.PaginatedRequestParams(cursor=cursor) if cursor else None
+        page = await client.list_tools(params=params)
+        tools.extend(page.tools)
+        if not page.next_cursor:
+            return tools
+        cursor = page.next_cursor
 
 
 # -- HeadOfContext as an MCP server --------------------------------------------------------------
