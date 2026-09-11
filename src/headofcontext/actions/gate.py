@@ -78,6 +78,11 @@ class ActionGate:
     def now(self) -> datetime:
         return self._clock.now()
 
+    @property
+    def decider(self) -> Decider:
+        """The decision path of the gate; the tool catalog asks it so the two never disagree."""
+        return self._decider
+
     def audit_raw(self, event: AuditEvent) -> None:
         """Record a denial that has no chain to attach (an invalid token, for instance)."""
         self._audit.record(event)
