@@ -176,12 +176,16 @@ caller):
 uv sync --extra mcp
 hoc mcp proxy --upstream-stdio "npx -y @modelcontextprotocol/server-filesystem ." \
               --tool-map read_file=fs.read     # every upstream tool gated; denials are MCP errors
+hoc mcp proxy --upstream finance="npx -y finance-mcp" --upstream crm=https://crm.example/mcp
+                                               # one proxy, several servers: finance__report is gated as tool:finance/report
 hoc mcp serve                                  # hoc_filter / hoc_gate / hoc_redeem / hoc_recall / hoc_remember / hoc_whoami
 ```
 
 The proxy lists only the upstream tools the user may invoke (biscuit scope and OpenFGA
 `can_invoke`, one `tools_listed` audit event per listing), plus `hoc_redeem` for calls a human
-approved; the gate still runs on every call, whatever the model was shown. Resources and prompts
+approved; the gate still runs on every call, whatever the model was shown. With several
+`--upstream NAME=TARGET`, tools are exposed as `NAME__tool` and gated as `tool:NAME/tool`, so the
+accounting team's agent never carries the logistics tools in its context. Resources and prompts
 are not forwarded. See ADR 0013 and ADR 0030.
 
 ## Operating it
