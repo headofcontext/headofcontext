@@ -3,4 +3,4 @@ name: headofcontext
 description: One permission model for humans and their agents (service, ADR 0011).
 type: application
 version: 0.1.0
-appVersion: "0.0.1"
+appVersion: 0.1.0
