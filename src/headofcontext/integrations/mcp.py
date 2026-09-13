@@ -30,6 +30,7 @@ from mcp.server.stdio import stdio_server
 from headofcontext.audit import AuditSink
 from headofcontext.core import AuthzEngine, Outcome
 from headofcontext.core.errors import ActionDenied, HocError
+from headofcontext.integrations.catalog import visible_tools
 from headofcontext.integrations.guard import ApprovalPending, ToolGuard, refusal_message
 from headofcontext.integrations.session import AgentSession
 from headofcontext.memory import MemoryService
@@ -94,7 +95,17 @@ class GuardedMcpProxy:
     ) -> types.ListToolsResult:
         upstream = await self._upstream.list_tools(params=params)
         # The redeem tool is ours; an upstream tool with the same name is hidden, never reachable.
-        tools = [tool for tool in upstream.tools if tool.name != REDEEM_TOOL]
+        candidates = [tool for tool in upstream.tools if tool.name != REDEEM_TOOL]
+        # Only what the subject may invoke reaches the model (ADR 0030). The gate still runs on
+        # every call: a client may name a tool it was never shown.
+        catalog = await visible_tools(
+            self._guard.session, [self._guard.resource_for(t.name) for t in candidates]
+        )
+        tools = [
+            tool
+            for tool in candidates
+            if catalog.outcomes.get(self._guard.resource_for(tool.name)) is not Outcome.DENY
+        ]
         tools.append(
             types.Tool(
                 name=REDEEM_TOOL, description=_REDEEM_DESCRIPTION, input_schema=_REDEEM_SCHEMA

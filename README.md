@@ -179,8 +179,10 @@ hoc mcp proxy --upstream-stdio "npx -y @modelcontextprotocol/server-filesystem .
 hoc mcp serve                                  # hoc_filter / hoc_gate / hoc_redeem / hoc_recall / hoc_remember / hoc_whoami
 ```
 
-The proxy exposes the upstream's tools verbatim plus `hoc_redeem` for calls a human approved;
-resources and prompts are not forwarded. See ADR 0013.
+The proxy lists only the upstream tools the user may invoke (biscuit scope and OpenFGA
+`can_invoke`, one `tools_listed` audit event per listing), plus `hoc_redeem` for calls a human
+approved; the gate still runs on every call, whatever the model was shown. Resources and prompts
+are not forwarded. See ADR 0013 and ADR 0030.
 
 ## Operating it
 

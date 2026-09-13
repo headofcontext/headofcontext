@@ -35,6 +35,7 @@ class EventKind(StrEnum):
     MANDATE_REVOKED = "mandate_revoked"
     MANDATE_EXPIRED = "mandate_expired"
     READ_FILTERED = "read_filtered"
+    TOOLS_LISTED = "tools_listed"
     CONNECTOR_SYNCED = "connector_synced"
 
 

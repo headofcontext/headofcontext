@@ -36,3 +36,4 @@ One decision per file, numbered, never edited after acceptance (superseded by a 
 
 Some ADRs point to `docs/ideas.md` for ideas that were parked. That file is kept out of the
 repository; open an issue naming the ADR to discuss one of them.
+| [0030](0030-tool-catalog-filtering-and-multi-upstream-proxy.md) | Tool catalog filtering and the multi-upstream MCP proxy | Accepted |

@@ -22,7 +22,7 @@ from mcp.server.mcpserver import MCPServer
 from mcp.shared.memory import create_client_server_memory_streams
 
 from headofcontext.actions import ActionGate
-from headofcontext.audit import InMemoryAuditSink
+from headofcontext.audit import EventKind, InMemoryAuditSink
 from headofcontext.core import Capability, Decider, Kind, PrincipalChain, Scope
 from headofcontext.integrations import AgentSession
 from headofcontext.integrations.mcp import (
@@ -34,6 +34,7 @@ from headofcontext.integrations.mcp import (
 from headofcontext.memory import InMemoryLedger, InMemoryMemoryAdapter, MemoryService
 from headofcontext.tokens.biscuit import TokenService
 from tests.conftest import FrozenClock
+from tests.unit.integrations.conftest import MAIL_ONLY
 from tests.unit.memory.conftest import FakeGraph
 
 TOOL_MAP = {"mail_send": "mail.send", "hr_export": "finance.report", "payment_send": "payment.send"}
@@ -116,10 +117,11 @@ def text_of(result: types.CallToolResult | Any) -> str:
 
 
 async def test_proxy_lists_upstream_tools_and_its_redeem_tool(session: AgentSession) -> None:
+    # hr_export maps to tool:finance.report, which alice may not invoke: hidden (ADR 0030).
     async with proxied(session, []) as (client, _):
         tools = (await client.list_tools()).tools
         names = [t.name for t in tools]
-        assert sorted(names) == sorted(["mail_send", "hr_export", "payment_send", REDEEM_TOOL])
+        assert sorted(names) == sorted(["mail_send", "payment_send", REDEEM_TOOL])
         assert names.count(REDEEM_TOOL) == 1
         mail = next(t for t in tools if t.name == "mail_send")
         assert mail.description == "Send an email."
@@ -376,3 +378,57 @@ async def test_hoc_server_session_without_read_scope_filters_everything(
     async with hoc_client(session, graph, audit, memory_service) as client:
         out = payload(await client.call_tool("hoc_filter", {"items": ["document:a"]}))
         assert out["kept"] == [] and out["dropped"] == ["document:a"]
+
+
+# -- catalog filtering (ADR 0030) ------------------------------------------------------------
+
+
+async def test_proxy_lists_only_what_the_subject_may_invoke(
+    session: AgentSession, graph: FakeGraph
+) -> None:
+    graph.grant("user:alice", "can_invoke", "tool:finance.report")
+    async with proxied(session, []) as (client, _):
+        names = sorted(t.name for t in (await client.list_tools()).tools)
+        assert names == sorted(["mail_send", "hr_export", "payment_send", REDEEM_TOOL])
+        graph.revoke("user:alice", "can_invoke", "tool:finance.report")
+        names = sorted(t.name for t in (await client.list_tools()).tools)
+        assert names == sorted(["mail_send", "payment_send", REDEEM_TOOL])
+
+
+async def test_proxy_lists_by_token_scope_and_journals_one_event(
+    token_service: TokenService, gate: ActionGate, audit: InMemoryAuditSink
+) -> None:
+    narrow = AgentSession(
+        token=token_service.issue(
+            PrincipalChain.root("user:alice", "agent:assistant", MAIL_ONLY)
+        ).token,
+        caller="agent:assistant",
+        token_service=token_service,
+        gate=gate,
+    )
+    async with proxied(narrow, []) as (client, _):
+        before = len(audit.events)
+        names = {t.name for t in (await client.list_tools()).tools}
+        assert names == {"mail_send", REDEEM_TOOL}
+        listed = [e for e in audit.events[before:] if e.kind is EventKind.TOOLS_LISTED]
+        assert len(listed) == 1
+        assert "visible=1" in listed[0].reason and "hidden=2" in listed[0].reason
+
+
+async def test_proxy_lists_nothing_when_the_engine_is_down(
+    session: AgentSession, graph: FakeGraph
+) -> None:
+    async with proxied(session, []) as (client, _):
+        graph.down = True
+        names = {t.name for t in (await client.list_tools()).tools}
+        assert names == {REDEEM_TOOL}
+
+
+async def test_proxy_lists_nothing_with_a_revoked_token(
+    session: AgentSession, token_service: TokenService
+) -> None:
+    async with proxied(session, []) as (client, _):
+        ids = token_service.inspect(session.token, caller=session.caller).revocation_ids
+        token_service.revoke_id(ids[0], reason="test")
+        names = {t.name for t in (await client.list_tools()).tools}
+        assert names == {REDEEM_TOOL}
