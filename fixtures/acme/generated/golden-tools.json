@@ -1,0 +1,952 @@
+[
+ {
+  "id": "t-000",
+  "subject": "user:alice.martin",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-001",
+  "subject": "user:bruno.bernard",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-002",
+  "subject": "user:camille.dubois",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-003",
+  "subject": "user:david.thomas",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-004",
+  "subject": "user:emma.robert",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-005",
+  "subject": "user:farid.richard",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-006",
+  "subject": "user:gaelle.petit",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-007",
+  "subject": "user:hugo.durand",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-008",
+  "subject": "user:ines.leroy",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-009",
+  "subject": "user:julien.moreau",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-010",
+  "subject": "user:karim.simon",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-011",
+  "subject": "user:lea.laurent",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-012",
+  "subject": "user:mathis.lefebvre",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-013",
+  "subject": "user:nadia.michel",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-014",
+  "subject": "user:oscar.garcia",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-015",
+  "subject": "user:pauline.david",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-016",
+  "subject": "user:quentin.bertrand",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-017",
+  "subject": "user:rania.roux",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-018",
+  "subject": "user:samir.vincent",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-019",
+  "subject": "user:theo.fournier",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-020",
+  "subject": "user:ursule.morel",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-021",
+  "subject": "user:victor.girard",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-022",
+  "subject": "user:wassim.andre",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-023",
+  "subject": "user:xavier.lefevre",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-024",
+  "subject": "user:yasmine.mercier",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-025",
+  "subject": "user:zoe.dupont",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-026",
+  "subject": "user:adrien.lambert",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-027",
+  "subject": "user:benedicte.bonnet",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-028",
+  "subject": "user:clement.francois",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-029",
+  "subject": "user:dorian.martinez",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-030",
+  "subject": "user:elise.legrand",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-031",
+  "subject": "user:fabien.garnier",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-032",
+  "subject": "user:garance.faure",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-033",
+  "subject": "user:helene.rousseau",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-034",
+  "subject": "user:ismael.blanc",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-035",
+  "subject": "user:jade.guerin",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-036",
+  "subject": "user:kevin.muller",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-037",
+  "subject": "user:louise.henry",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-038",
+  "subject": "user:marc.roussel",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-039",
+  "subject": "user:noemie.nicolas",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-040",
+  "subject": "user:olivier.perrin",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-041",
+  "subject": "user:perrine.morin",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-042",
+  "subject": "user:rachid.mathieu",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-043",
+  "subject": "user:sophie.clement",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-044",
+  "subject": "user:tristan.gauthier",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-045",
+  "subject": "user:valerie.dumont",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:mail.send",
+   "tool:store.stock"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign"
+  ]
+ },
+ {
+  "id": "t-046",
+  "subject": "user:william.lopez",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.reset-password",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-047",
+  "subject": "user:yann.fontaine",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:it.ticket",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-048",
+  "subject": "user:zacharie.chevalier",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ },
+ {
+  "id": "t-049",
+  "subject": "user:anais.robin",
+  "actor": "agent:assistant",
+  "expected_invocable": [
+   "tool:finance.invoice",
+   "tool:finance.report",
+   "tool:it.ticket",
+   "tool:mail.send"
+  ],
+  "expected_denied": [
+   "tool:hr.export",
+   "tool:hr.leave",
+   "tool:it.reset-password",
+   "tool:legal.contract",
+   "tool:legal.sign",
+   "tool:store.stock"
+  ]
+ }
+]

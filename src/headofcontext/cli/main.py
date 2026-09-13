@@ -7,6 +7,7 @@ import asyncio
 import json
 import logging
 import os
+import re
 import sys
 import time
 from collections.abc import Sequence
@@ -19,11 +20,13 @@ import biscuit_auth
 import httpx
 
 from headofcontext.cli.env import load_dotenv, write_env
-from headofcontext.core.errors import HocError
+from headofcontext.core.errors import ConfigurationError, HocError
 from headofcontext.logging import configure_logging
 from headofcontext.settings import REQUIRE_DB, REQUIRE_ENGINE
 
 if TYPE_CHECKING:
+    from mcp import ClientSession
+
     from headofcontext.integrations import AgentSession
     from headofcontext.services import Services
     from headofcontext.settings import Settings
@@ -163,16 +166,25 @@ def _add_mcp_parser(sub: argparse._SubParsersAction[argparse.ArgumentParser]) ->
     mcp = sub.add_parser("mcp", help="Model Context Protocol (ADR 0013)").add_subparsers(
         dest="action"
     )
-    p = mcp.add_parser("proxy", help="stdio MCP server gating every tool of an upstream server")
+    p = mcp.add_parser(
+        "proxy", help="stdio MCP server gating the tools of one or several upstream servers"
+    )
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--upstream-stdio", help="command line of the upstream stdio server")
     group.add_argument("--upstream-http", help="URL of the upstream streamable HTTP server")
+    group.add_argument(
+        "--upstream",
+        action="append",
+        metavar="NAME=TARGET",
+        help="a named upstream (repeatable): TARGET is a streamable HTTP URL or a stdio command "
+        "line; tools are exposed as NAME__tool and gated as tool:NAME/tool",
+    )
     p.add_argument(
         "--tool-map",
         action="append",
         default=[],
         metavar="NAME=TOOL",
-        help="map an MCP tool name to a tool resource (default: tool:<name>)",
+        help="map an MCP tool name (NAME__tool with --upstream) to a tool resource",
     )
     p.set_defaults(handler=cmd_mcp_proxy)
     p = mcp.add_parser("serve", help="expose HeadOfContext itself as an MCP server")
@@ -672,6 +684,30 @@ def _tool_map(pairs: Sequence[str]) -> dict[str, str]:
     return mapping
 
 
+_UPSTREAM_NAME_RE = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
+
+
+def _upstreams(pairs: Sequence[str]) -> dict[str, str]:
+    """``NAME=TARGET`` pairs of ``--upstream``; the target is a URL or a stdio command line."""
+    upstreams: dict[str, str] = {}
+    for pair in pairs:
+        name, sep, target = pair.partition("=")
+        if not sep or not name or not target:
+            raise ConfigurationError(f"--upstream expects NAME=TARGET, got {pair!r}")
+        if not _UPSTREAM_NAME_RE.match(name) or "__" in name:
+            raise ConfigurationError(
+                f"invalid upstream name {name!r}: [a-z0-9][a-z0-9_-]*, no '__'"
+            )
+        if name in upstreams:
+            raise ConfigurationError(f"duplicate upstream name {name!r}")
+        upstreams[name] = target
+    return upstreams
+
+
+def _is_url(target: str) -> bool:
+    return target.startswith(("http://", "https://"))
+
+
 def cmd_mcp_proxy(args: argparse.Namespace) -> int:
     import shlex  # noqa: PLC0415
     from contextlib import AsyncExitStack  # noqa: PLC0415
@@ -683,26 +719,44 @@ def cmd_mcp_proxy(args: argparse.Namespace) -> int:
 
     # stdout is the MCP channel: everything else goes to stderr.
     tool_map = _tool_map(args.tool_map)
+    # One anonymous upstream (tool names verbatim) or several named ones (prefixed names).
+    targets: dict[str | None, tuple[bool, str]]
+    if args.upstream:
+        targets = {name: (_is_url(t), t) for name, t in _upstreams(args.upstream).items()}
+    elif args.upstream_stdio:
+        targets = {None: (False, args.upstream_stdio)}
+    else:
+        targets = {None: (True, args.upstream_http)}
+
+    async def open_upstream(stack: AsyncExitStack, is_url: bool, target: str) -> ClientSession:
+        if is_url:
+            from mcp.client.streamable_http import streamable_http_client  # noqa: PLC0415
+
+            read, write, *_ = await stack.enter_async_context(streamable_http_client(target))
+        else:
+            from mcp.client.stdio import StdioServerParameters, stdio_client  # noqa: PLC0415
+
+            command, *argv = shlex.split(target)
+            read, write = await stack.enter_async_context(
+                stdio_client(StdioServerParameters(command=command, args=argv))
+            )
+        client = await stack.enter_async_context(ClientSession(read, write))
+        await client.initialize()
+        return client
 
     async def run() -> int:
         services = build_services(_settings())
         session = _mcp_session(services)
         async with AsyncExitStack() as stack:
-            if args.upstream_stdio:
-                from mcp.client.stdio import StdioServerParameters, stdio_client  # noqa: PLC0415
-
-                command, *argv = shlex.split(args.upstream_stdio)
-                read, write = await stack.enter_async_context(
-                    stdio_client(StdioServerParameters(command=command, args=argv))
-                )
-            else:
-                from mcp.client.streamable_http import streamable_http_client  # noqa: PLC0415
-
-                read, write, *_ = await stack.enter_async_context(
-                    streamable_http_client(args.upstream_http)
-                )
-            upstream = await stack.enter_async_context(ClientSession(read, write))
-            await upstream.initialize()
+            clients = {
+                name: await open_upstream(stack, is_url, target)
+                for name, (is_url, target) in targets.items()
+            }
+            upstream: ClientSession | dict[str, ClientSession] = (
+                clients[None]
+                if None in clients
+                else {name: client for name, client in clients.items() if name is not None}
+            )
             try:
                 await GuardedMcpProxy(session, upstream, tool_map=tool_map).run_stdio()
             finally:

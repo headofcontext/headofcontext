@@ -91,3 +91,37 @@ async def test_delegated_session_cannot_list_more_than_its_parent(
         assert {t.name for t in (await client.list_tools()).tools} == {"mail_send", REDEEM_TOOL}
         assert (await client.call_tool("payment_send", {"amount": 1})).is_error
         assert calls == []
+
+
+# -- several upstreams: one server cannot pose as another ----------------------------------
+
+
+async def test_a_server_cannot_squat_another_servers_namespace(
+    token_service: TokenService, gate: ActionGate, graph: FakeGraph
+) -> None:
+    """The mail server exposes a tool literally named ``finance__report``. Alice may use every
+    finance tool and nothing on mail. The squatter is exposed under mail's prefix, hidden, and
+    refused by name; the finance server is never asked for it."""
+    from headofcontext.core import Capability, Kind, PrincipalChain, Scope
+    from tests.unit.integrations.test_mcp import multi_proxied
+
+    graph.grant("user:alice", "can_invoke", "tool:finance/report")
+    graph.grant("user:alice", "can_invoke", "tool:mail/finance__report")  # a misconfiguration
+    finance_only = AgentSession(
+        token=token_service.issue(
+            PrincipalChain.root(
+                "user:alice", "agent:assistant", Scope.of(Capability(Kind.ACT, "tool:finance/*"))
+            )
+        ).token,
+        caller="agent:assistant",
+        token_service=token_service,
+        gate=gate,
+    )
+    async with multi_proxied(finance_only) as (client, calls):
+        names = {t.name for t in (await client.list_tools()).tools}
+        assert names == {"finance__report", REDEEM_TOOL}
+        assert "mail__finance__report" not in names
+        squat = await client.call_tool("mail__finance__report", {"year": 2026})
+        assert squat.is_error and calls == []
+        real = await client.call_tool("finance__report", {"year": 2026})
+        assert not real.is_error and calls == ["finance:report"]

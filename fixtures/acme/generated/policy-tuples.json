@@ -55,9 +55,54 @@
   "object": "tool:mail.send"
  },
  {
+  "user": "group:direction#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:finance#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:magasin-lille#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:magasin-lyon#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:it#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:stagiaires#member",
+  "relation": "can_invoke",
+  "object": "tool:it.ticket"
+ },
+ {
   "user": "group:rh#member",
   "relation": "can_invoke",
   "object": "tool:hr.export"
+ },
+ {
+  "user": "group:rh#member",
+  "relation": "can_invoke",
+  "object": "tool:hr.leave"
  },
  {
   "user": "group:finance#member",
@@ -65,14 +110,34 @@
   "object": "tool:finance.report"
  },
  {
+  "user": "group:finance#member",
+  "relation": "can_invoke",
+  "object": "tool:finance.invoice"
+ },
+ {
   "user": "group:it#member",
   "relation": "can_invoke",
   "object": "tool:it.reset-password"
  },
  {
+  "user": "group:magasin-lille#member",
+  "relation": "can_invoke",
+  "object": "tool:store.stock"
+ },
+ {
+  "user": "group:magasin-lyon#member",
+  "relation": "can_invoke",
+  "object": "tool:store.stock"
+ },
+ {
   "user": "group:juridique#member",
   "relation": "can_invoke",
   "object": "tool:legal.sign"
+ },
+ {
+  "user": "group:juridique#member",
+  "relation": "can_invoke",
+  "object": "tool:legal.contract"
  },
  {
   "user": "group:direction#member",
@@ -82,7 +147,17 @@
  {
   "user": "group:direction#member",
   "relation": "approver",
+  "object": "tool:it.ticket"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
   "object": "tool:hr.export"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:hr.leave"
  },
  {
   "user": "group:direction#member",
@@ -92,12 +167,27 @@
  {
   "user": "group:direction#member",
   "relation": "approver",
+  "object": "tool:finance.invoice"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
   "object": "tool:it.reset-password"
  },
  {
   "user": "group:direction#member",
   "relation": "approver",
+  "object": "tool:store.stock"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
   "object": "tool:legal.sign"
+ },
+ {
+  "user": "group:direction#member",
+  "relation": "approver",
+  "object": "tool:legal.contract"
  },
  {
   "user": "user:alice.martin",
