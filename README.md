@@ -124,8 +124,10 @@ applies migrations (`hoc db migrate|status`). See ADR 0012.
 
 Agents authenticate with OIDC client credentials; humans with their own token when they issue a
 root biscuit or resolve an approval (ADR 0011). The HTTP contract is
-[`docs/openapi.json`](docs/openapi.json); a Python client written against it is published
-separately.
+[`docs/openapi.json`](docs/openapi.json); two clients written against it are published
+separately: [Python](https://github.com/headofcontext/sdk-python) (`headofcontext-client`, httpx
+only) and [TypeScript](https://github.com/headofcontext/sdk-javascript) (`@headofcontext/client`,
+no runtime dependency).
 
 ## Integrations
 

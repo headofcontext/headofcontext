@@ -37,8 +37,9 @@ curl -s localhost:8000/v1/actions/gate -H "Authorization: Bearer $AGENT_JWT" \
 uv run hoc journal tail -n 5                                 # every decision, journaled
 ```
 
-Every route is in `docs/openapi.json` (also served at `/docs`); a Python client written against it
-is published separately.
+Every route is in `docs/openapi.json` (also served at `/docs`); a Python client
+(`headofcontext-client`) and a TypeScript client (`@headofcontext/client`) written against it
+are published separately.
 
 ## B. Provenance-aware memory in 10 minutes
 

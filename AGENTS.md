@@ -133,6 +133,7 @@ release notes, ADR 0028).
 Published separately, not yet public at the time of writing:
 
 - `headofcontext-sdk-python` — the httpx-only client, written against `docs/openapi.json`.
+- `headofcontext-sdk-javascript` — the TypeScript client, no runtime dependency, same contract.
 - `documentation` — the Docusaurus site; its `scripts/sync-core.sh` copies ADRs and contracts
   from here.
 - `headofcontext.com` — the marketing site.
