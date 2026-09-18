@@ -5,8 +5,9 @@
 ## The problem nobody's memory tool solves
 
 Agent memory is wonderful. Mem0, Zep, Graphiti and friends turn a stateless model into an
-assistant that remembers what it learned last week. In an enterprise, that is exactly the
-problem: **what it learned last week was learned while acting for someone else.**
+assistant that remembers what it learned last week. In a company of fifteen or of five thousand,
+that is exactly the problem: **what it learned last week was learned while acting for someone
+else.**
 
 An assistant helps an HR manager on Monday and reads the salary grid. On Tuesday a store
 employee asks the same assistant "what's the raise this year?". The memory tool has a great

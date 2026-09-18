@@ -1,8 +1,9 @@
 # Quickstart
 
 You need Docker, `uv` and Python 3.12+. Everything below runs locally with the fictional ACME
-company (50 users, 8 groups, 500 documents). Part A gets you a first authorization decision over
-HTTP in five minutes; part B is the provenance-memory demo.
+company (50 users, 8 groups, 500 documents): a business the size of the one where your
+colleagues are starting to build their own agents. Part A gets you a first authorization
+decision over HTTP in five minutes; part B is the provenance-memory demo.
 
 ## A. From zero to an HTTP decision (5 min)
 
