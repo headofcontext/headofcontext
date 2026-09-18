@@ -37,12 +37,18 @@ GROUP_HIERARCHY = [
     ("direction", "finance"),
     ("direction", "juridique"),
 ]
+# One MCP server per service in the golden proxy run (ADR 0030): ``tool:<service>.<tool>``.
 TOOLS = {
     "tool:mail.send": DEPARTMENTS,
+    "tool:it.ticket": DEPARTMENTS,
     "tool:hr.export": ["rh"],
+    "tool:hr.leave": ["rh"],
     "tool:finance.report": ["finance"],
+    "tool:finance.invoice": ["finance"],
     "tool:it.reset-password": ["it"],
+    "tool:store.stock": ["magasin-lille", "magasin-lyon"],
     "tool:legal.sign": ["juridique"],
+    "tool:legal.contract": ["juridique"],
 }
 # Who may resolve a REQUIRE_APPROVAL request for each tool (ADR 0017): management, always.
 TOOL_APPROVERS = {tool: ["direction"] for tool in TOOLS}
@@ -240,6 +246,15 @@ class GoldenQuestion:
     expected_invisible: list[str]
 
 
+@dataclass
+class GoldenToolCase:
+    id: str
+    subject: str
+    actor: str
+    expected_invocable: list[str]
+    expected_denied: list[str]
+
+
 def slug(text: str) -> str:
     table = str.maketrans("àâäéèêëîïôöùûüç'", "aaaeeeeiioouuuc-")
     return text.lower().translate(table).replace(" ", "-")
@@ -388,6 +403,28 @@ def can_view(
     if source is None:
         return False
     return bool(principals & set(source.viewers) or principals & set(source.editors))
+
+
+def can_invoke(user: User, tool: str, groups: dict[str, Group]) -> bool:
+    """Oracle for ``tool#can_invoke``: granted to departments, inherited through the hierarchy."""
+    return bool(effective_groups(user, groups) & {f"group:{d}" for d in TOOLS[tool]})
+
+
+def make_golden_tools(users: list[User], groups: list[Group]) -> list[GoldenToolCase]:
+    group_map = {g.id: g for g in groups}
+    cases: list[GoldenToolCase] = []
+    for index, user in enumerate(users):
+        invocable = sorted(t for t in TOOLS if can_invoke(user, t, group_map))
+        cases.append(
+            GoldenToolCase(
+                id=f"t-{index:03d}",
+                subject=user.id,
+                actor=AGENT,
+                expected_invocable=invocable,
+                expected_denied=sorted(set(TOOLS) - set(invocable)),
+            )
+        )
+    return cases
 
 
 def make_tuples(
@@ -614,6 +651,7 @@ def main() -> None:
     dump("tuples.json", tuples)
     dump("policy-tuples.json", make_policy_tuples(users, groups))
     dump("golden.json", [asdict(q) for q in golden])
+    dump("golden-tools.json", [asdict(c) for c in make_golden_tools(users, groups)])
     dump("keycloak-realm.json", make_keycloak_realm(users))
     stats = {
         "users": len(users),
@@ -622,6 +660,8 @@ def main() -> None:
         "documents": len(docs),
         "tuples": len(tuples),
         "golden": len(golden),
+        "golden_tools": len(users),
+        "tools": len(TOOLS),
         "confidentiality": {
             c: sum(1 for d in docs if d.confidentiality == c) for c in CONFIDENTIALITY
         },
