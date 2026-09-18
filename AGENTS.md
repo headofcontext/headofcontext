@@ -7,8 +7,9 @@ the rules that must never be broken, the method, the commands. Design rationale 
 
 ## What this is
 
-HeadOfContext is the single authorization layer for enterprise AI agents: open source (Apache
-2.0), self-hosted, independent of the agent framework, the RAG index and the memory tool.
+HeadOfContext is the single authorization layer for the AI agents a team builds and runs, from
+a fifteen-person company to a large one: open source (Apache 2.0), self-hosted, independent of
+the agent framework, the RAG index and the memory tool.
 
 One rule, enforced everywhere: **an agent can only read, do and remember what the user it acts
 for is allowed to see and do, and every delegation between agents can only reduce those rights.**
@@ -132,6 +133,7 @@ release notes, ADR 0028).
 Published separately, not yet public at the time of writing:
 
 - `headofcontext-sdk-python` — the httpx-only client, written against `docs/openapi.json`.
+- `headofcontext-sdk-javascript` — the TypeScript client, no runtime dependency, same contract.
 - `documentation` — the Docusaurus site; its `scripts/sync-core.sh` copies ADRs and contracts
   from here.
 - `headofcontext.com` — the marketing site.

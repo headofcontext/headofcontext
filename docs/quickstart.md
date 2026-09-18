@@ -1,8 +1,9 @@
 # Quickstart
 
 You need Docker, `uv` and Python 3.12+. Everything below runs locally with the fictional ACME
-company (50 users, 8 groups, 500 documents). Part A gets you a first authorization decision over
-HTTP in five minutes; part B is the provenance-memory demo.
+company (50 users, 8 groups, 500 documents): a business the size of the one where your
+colleagues are starting to build their own agents. Part A gets you a first authorization
+decision over HTTP in five minutes; part B is the provenance-memory demo.
 
 ## A. From zero to an HTTP decision (5 min)
 
@@ -36,8 +37,9 @@ curl -s localhost:8000/v1/actions/gate -H "Authorization: Bearer $AGENT_JWT" \
 uv run hoc journal tail -n 5                                 # every decision, journaled
 ```
 
-Every route is in `docs/openapi.json` (also served at `/docs`); a Python client written against it
-is published separately.
+Every route is in `docs/openapi.json` (also served at `/docs`); a Python client
+(`headofcontext-client`) and a TypeScript client (`@headofcontext/client`) written against it
+are published separately.
 
 ## B. Provenance-aware memory in 10 minutes
 

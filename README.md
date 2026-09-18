@@ -5,11 +5,13 @@
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![python](https://img.shields.io/badge/python-3.12%2B-blue.svg)
 
-**One permission model for humans and their agents.** Open source, self-hosted, Apache 2.0.
+**Everyone on your team can build agents. HeadOfContext makes sure each one inherits the rights
+of the person behind it, never more.** Open source, self-hosted, Apache 2.0.
 
-Five hundred people and forty agents, or one founder and a dozen: each agent reads, does,
-delegates and remembers exactly what the human behind it may, and nothing more. Every decision
-is journaled.
+Your support colleague just built an agent with a low-code builder. It answers tickets, searches
+the shared drive and sends mail. Can it read the salary grid? Only if they can. HeadOfContext
+gives every agent exactly what the human it acts for may read, do, delegate and remember, and
+nothing more, whoever built it. Every decision is journaled.
 
 > An agent can only read, do and remember what the human it acts for is allowed to see and do,
 > however many agents sit in between.
@@ -23,15 +25,24 @@ is journaled.
 
 ## Who it is for
 
-Your workforce is now people and agents, in whatever ratio. HeadOfContext does not care how many
-of each: every agent, at every level of delegation, holds a subset of one human's rights.
+Rights are not declared per agent: they come from the directory and the ACLs you already have
+(Keycloak or any OIDC provider, Nextcloud, your search index), and every agent, at every level of
+delegation, holds a subset of one human's rights.
 
-- **An IT department** that must answer for every agent the business plugs in: one model for the
-  directory, the documents, the tools and the agents, one journal for the auditors.
+- **The tech lead of a 10 to 100 person company** where support, ops, HR and sales build their
+  own agents with tools like Mastra, and you are the only senior. The usual choice is
+  binary: forbid everything and become the bottleneck, or let it run and watch the support
+  agent read the salary grid. HeadOfContext is the third way: everyone builds, and no agent sees
+  more than the person running it. The support agent does not read the salary grid; the
+  accounting agent does not send mail as the CEO. Nothing to re-declare, one `docker compose`,
+  no vendor to onboard.
 - **A small AI team** shipping agents faster than access reviews can follow: rights come from the
   directory that already exists, nothing to re-declare per agent.
-- **A solo founder** running a business with agents: each one acts for you with the slice of your
-  rights you chose, approvals on your phone, one call to revoke.
+- **The IT department of a larger company**, later: the same model holds at five hundred people
+  and forty agents, one journal for the auditors. That is the horizon, not the entry ticket.
+- **A solo founder**: this is how HeadOfContext itself is built and run, with agents acting for
+  one person. It works for one person too; at that size, who may see what is rarely the first
+  problem.
 
 ## How it works
 
@@ -62,7 +73,9 @@ stays free.
 ## Proof, not promises
 
 The repository ships with ACME, a fictional company: 50 people, 8 groups, 500 documents, 3
-agents and 300 reference questions, replayed against a real OpenFGA in `tests/golden`.
+agents and 300 reference questions, replayed against a real OpenFGA in `tests/golden`. ACME is
+deliberately the size of company where colleagues start building their own agents: read it as a
+benchmark, or as the fifty-person business next door.
 
 | Claim | Where it is checked |
 |---|---|
@@ -111,8 +124,10 @@ applies migrations (`hoc db migrate|status`). See ADR 0012.
 
 Agents authenticate with OIDC client credentials; humans with their own token when they issue a
 root biscuit or resolve an approval (ADR 0011). The HTTP contract is
-[`docs/openapi.json`](docs/openapi.json); a Python client written against it is published
-separately.
+[`docs/openapi.json`](docs/openapi.json); two clients written against it are published
+separately: [Python](https://github.com/headofcontext/sdk-python) (`headofcontext-client`, httpx
+only) and [TypeScript](https://github.com/headofcontext/sdk-javascript) (`@headofcontext/client`,
+no runtime dependency).
 
 ## Integrations
 
