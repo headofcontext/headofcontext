@@ -62,6 +62,27 @@ class TestIssueAndVerify:
         assert verified.revocation_ids == issued.revocation_ids
         assert len(verified.revocation_ids) == 1
 
+    def test_datalog_failure_while_reading_facts_is_token_invalid(
+        self, service: TokenService, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """I5: a biscuit whose facts cannot be read (Datalog limits under load) is DENY, not 500."""
+        import biscuit_auth
+
+        from headofcontext.tokens.biscuit import service as service_module
+
+        token = service.issue(ROOT).token
+
+        def exhausted(*_args: object, **_kwargs: object) -> object:
+            raise biscuit_auth.AuthorizationError("Reached Datalog execution limits")
+
+        monkeypatch.setattr(service_module, "read_authority", exhausted)
+        with pytest.raises(TokenInvalid):
+            service.verify_many(
+                token, caller="agent:a", operation=Kind.READ, resources=["document:x"]
+            )
+        with pytest.raises(TokenInvalid):
+            service.verify(token, caller="agent:a", operation=Kind.READ, resource="document:x")
+
     def test_issue_requires_root_chain(self, service: TokenService) -> None:
         delegated = ROOT.delegate("agent:b", Scope.of(READ_HR))
         with pytest.raises(TokenInvalid):

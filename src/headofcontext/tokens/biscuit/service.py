@@ -100,9 +100,16 @@ def load(token: str, keyring: KeyRing) -> _Loaded:
     if depth > MAX_DELEGATION_DEPTH:
         raise TokenInvalid(f"delegation depth {depth} exceeds {MAX_DELEGATION_DEPTH}")
 
-    authorizer = biscuit_auth.AuthorizerBuilder("allow if true;").build(biscuit)
-    subject, actor, scope, expires_at = read_authority(authorizer)
-    mandate_id = read_mandate(authorizer)
+    # Reading the facts runs Datalog; under load biscuit can hit its execution limits and
+    # raise. That is a token we could not read, hence DENY (I5), never an unhandled error.
+    try:
+        authorizer = biscuit_auth.AuthorizerBuilder("allow if true;").build(biscuit)
+        subject, actor, scope, expires_at = read_authority(authorizer)
+        mandate_id = read_mandate(authorizer)
+    except TokenInvalid:
+        raise
+    except Exception as exc:
+        raise TokenInvalid("token facts could not be read") from exc
     try:
         chain = PrincipalChain.root(subject, actor, scope)
         for index in range(1, biscuit.block_count()):
